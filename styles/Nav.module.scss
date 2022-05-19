@@ -1,0 +1,43 @@
+@import './variables/all.scss';
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 25px;
+  border-radius: 5px; 
+  overflow: hidden;
+  list-style: none;
+}
+
+.pageItem {
+  flex: auto;
+  text-align: center;
+}
+
+.pageLink {
+  display: block;
+  padding: 8px 12px;
+  color: $white;
+  background-color: $green-color;
+  border-color: $dark-green-color;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+    background-color: $medium-green-color;
+  }
+}
+
+.pageLinkActive {
+  display: block;
+  padding: 8px 12px;
+  color: $white;
+  background-color: $medium-green-color;
+  border-color: $dark-green-color;
+  &:hover {
+    color: $white;
+    text-decoration: none;
+    background-color: $light-green-color;
+  }
+}
