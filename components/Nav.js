@@ -2,12 +2,12 @@ import Link from 'next/link';
 import styles from './../styles/Nav.module.scss';
 
 const navigation = [
-  { id: 1, title: 'Разминка', path: '/cards/card' },
-  { id: 2, title: 'Воробьиные', path: '/cards/card' },
-  { id: 3, title: 'Лесные птицы', path: '/cards/card' },
-  { id: 4, title: 'Певчие птицы', path: '/cards/card' },
-  { id: 5, title: 'Хищные птицы', path: '/cards/card' },
-  { id: 6, title: 'Морские птицы', path: '/cards/card' },
+  { id: 1, title: 'Разминка', path: '/cards/1' },
+  { id: 2, title: 'Воробьиные', path: '/cards/2' },
+  { id: 3, title: 'Лесные птицы', path: '/cards/3' },
+  { id: 4, title: 'Певчие птицы', path: '/cards/4' },
+  { id: 5, title: 'Хищные птицы', path: '/cards/5' },
+  { id: 6, title: 'Морские птицы', path: '/cards/6' },
 ];
 
 const Nav = ({ score = 25 }) => {
