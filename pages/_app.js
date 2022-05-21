@@ -1,20 +1,14 @@
-import '../styles/bootstrap.min.scss';
 import '../styles/globals.scss';
-import Layout from '../components/Layout';
-import { useRouter } from "next/router";
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-  
+ 
   return (
     <>
-      {router.pathname !== "/404" && router.pathname !== '/game-over' ? (
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      ) : (
-        <Component {...pageProps} />
-      )}
+      <Head>
+        <title>game</title>        
+      </Head>
+      <Component {...pageProps} />
     </>
   );
 }

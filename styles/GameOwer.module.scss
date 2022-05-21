@@ -1,0 +1,45 @@
+@import './variables/all.scss';
+
+.gameOverContainer {
+  width: 100%;
+  max-width: 1140px;
+  padding: 48px 32px;
+  margin: 40px auto;
+  background-color: $block-color;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.leadText {
+  font-size: 48px;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.resultText {
+  font-size: $font-size-l;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.hr {
+  margin-bottom: 40px;
+}
+
+.gameOverBtn {
+  padding: 12px 80px;
+  font-size: $font-size-l;
+  font-family: $font-roboto;
+  color: $white;
+  background-color: $medium-green-color;
+  border-color: $dark-green-color;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    color: $white;
+    background-color: $light-green-color;
+    border-color: $medium-green-color;
+  }
+}

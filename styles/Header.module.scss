@@ -23,13 +23,21 @@
 }
 
 .logo {
-  background-image: url("../public/logo.svg");
+  background-image: url("../public/svg/logo.svg");
   width: 200px;
   height: 55px;
   background-size: contain;
   background-repeat: no-repeat;
 }
 
+.scoreName {
+  margin: 0;
+  font-size: $font-size-lg;
+  font-weight: 400;
+}
+
 .score {
+  font-size: $font-size-lg;
+  font-weight: 400;
   line-height: 55px;
 }

@@ -1,0 +1,51 @@
+@import './variables/all.scss';
+
+.birdQuizContainer {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  margin-bottom: 25px;
+  background-color: $block-color;
+  border-radius: 5px;
+}
+
+.birdImage {
+  border-radius: 10px;
+  margin: 0px;
+}
+
+.birdQuizInfo {
+  width: calc(100% - 240px);
+  margin: 0;
+}
+
+.list {
+  margin: 0;
+  margin-left: 40px;
+  padding: 0;
+}
+
+.listItem {
+  padding: 5px;
+  list-style: none;
+}
+
+.birdName {
+  margin: 0;
+  padding-bottom: 20px;
+  font-size: 32px;
+  font-weight: 400; 
+  letter-spacing: 2px;
+  border-bottom: 1px solid $border-color;
+}
+
+.audio {
+  padding: 0 !important;
+  padding-top: 20px !important;
+  background-color: transparent !important;
+}
+
+.audio * {
+  color: #fff !important;
+  justify-content: center !important;
+}

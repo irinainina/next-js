@@ -1,0 +1,55 @@
+@import './variables/all.scss';
+
+.mainContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  min-height: 100vh;
+  padding: 0 15px;
+  margin: 0 auto;
+  background-image: url("../public/img/bird.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 500px;
+  height: 260px;
+  padding-bottom: 60px;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.subTitle {
+  font-size: 42px;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 20px;
+  letter-spacing: 3px;
+}
+
+.startBtn {
+  padding: 12px 80px;
+  font-size: $font-size-l;
+  font-family: $font-roboto;
+  color: $white;
+  background-color: $medium-green-color;
+  border-color: $dark-green-color;
+  border-radius: 5px;
+  cursor: pointer;
+  &:hover {
+    color: $white;
+    background-color: $light-green-color;
+    border-color: $medium-green-color;
+  }
+}

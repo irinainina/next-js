@@ -1,5 +1,5 @@
 import Nav from './Nav'
-import styles from './../styles/Header.module.scss';
+import styles from '../styles/Header.module.scss';
 
 const Header = ({ score = 25 }) => {  
   return (
@@ -7,7 +7,7 @@ const Header = ({ score = 25 }) => {
       <div className={styles.header}>
         <div className={styles.topPanel}>
           <div className={styles.logo}></div>
-          <h5>
+          <h5 className={styles.scoreName}>
             Score: <span className={styles.score}>{score}</span>
           </h5>
         </div>

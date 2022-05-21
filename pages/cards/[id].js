@@ -1,5 +1,9 @@
 import Head from "next/head";
-import CardInfo from "../../components/CardInfo";
+import Header from '../../components/Header';
+import BirdsList from "../../components/BirdsList";
+import BirdQuiz from "../../components/BirdQuiz";
+import BirdInfo from "../../components/BirdInfo";
+import styles from '../../styles/Card.module.scss';
 
 export const getServerSideProps = async (context) => {
   const {id} = context.params;
@@ -7,16 +11,22 @@ export const getServerSideProps = async (context) => {
   const response = await fetch(url);
   const data = await response.json();
   if (!data) {return {notFound: true}}
-  console.log(data.result.filter(el => el._id === id));
-  return {props: {card: data.result.filter(el => el._id === id)[0]}}
+  return {props: {birdsData: data.result.filter(el => el.questionNumber === +id)}}
 };
 
-const Card = ({ card }) => (
+const Card = ({ birdsData }) => (
   <>
     <Head>
-      <title>Contact</title>
+      <title>quiz</title>
     </Head>
-    <CardInfo card={card} />
+    <Header />
+    <div className={styles.container}>
+      <BirdQuiz />
+      <div className={styles.wrap}>
+        <BirdsList birdsData={birdsData} />
+        <BirdInfo birdsData={birdsData} />
+      </div>
+    </div>
   </>
 );
 

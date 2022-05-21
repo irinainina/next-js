@@ -1,13 +1,14 @@
 import Head from 'next/head';
+import Image from 'next/image';
+import StartPage from '../components/StartPage'
 
 const Home = () => (
   <>
     <Head>
-      <title>Song bird</title>
+      <title>song-bird</title>
     </Head>
-    <h1>Hello world</h1>
-  </>
-  
+    <StartPage />
+  </>  
 );
 
 export default Home;

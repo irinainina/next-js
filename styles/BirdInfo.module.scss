@@ -1,0 +1,122 @@
+@import './variables/all.scss';
+
+.birdsInfoContainer {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 20px);
+  min-height: 270px;
+  margin: 0;
+  border-radius: 5px;
+  padding: 20px;
+  border: 1px solid $border-color;
+  background-color: $block-color;
+}
+
+.birdImage {
+  flex: 0 0 100%;
+  width: 200px;
+  height: 155px;
+  border-radius: 10px;
+  object-fit: cover;  
+}
+
+.birdName {
+  font-size: 22px;
+  font-weight: 500;
+  padding: 0;
+  padding-bottom: 8px;
+  margin: 0;
+  margin-left: 32px;
+  border-bottom: 1px solid $border-color;
+}
+
+.birdSpecies {
+  font-size: $font-size-md;
+  font-weight: 400;
+  padding: 0;
+  padding-bottom: 8px;
+  margin: 0;
+  margin-left: 32px;
+  border-bottom: 1px solid $border-color;
+}
+
+.birdDescription {
+  font-size: $font-size-md;
+  font-weight: 300;
+  line-height: 1.35;
+  padding-top: 20px;
+}
+
+.listGroup {
+  width: calc(100% - 200px);
+  padding: 0;
+  margin: 0;
+}
+
+.listGroupItem {
+  width: 100%;
+  padding: 5px;
+  list-style: none;
+}
+
+.cardBody {
+  display: flex;
+  min-width: 100%;
+  padding: 0;
+  flex-direction: row;
+}
+
+.instruction span {
+  display: block;
+}
+
+.audio {
+  padding: 0 !important;
+  padding-top: 12px !important;
+  background-color: transparent !important;
+}
+
+.audio * {
+  color: #fff !important;
+  justify-content: center !important;
+}
+
+@media (max-width: 992px) {
+  .cardBody {
+    flex-direction: column;
+  }
+  .birdDetails .birdImage {
+    display: block;
+    margin: 0 auto 25px;
+  }
+  .cardBody .listGroup {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {  
+  .birdDetails {
+    display: block;
+    margin-top: 40px;    
+  }
+  .cardBody {
+    flex-direction: row;
+  }
+  .birdDetails .birdImage {
+    margin-right: 2rem;
+  }
+}
+
+@media (max-width: 570px) {  
+  .cardBody {
+    flex-direction: column;
+  }
+  
+  .birdDetails .birdImage {
+    margin: 0 auto 25px;
+  }
+  
+  .cardBody {
+    text-align: center;
+  }
+}
