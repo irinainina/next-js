@@ -33,3 +33,53 @@
     background-color: $border-color;
   }
 }
+
+.winItem {
+  position: relative;
+  padding: 17px 20px 17px 45px;
+  background-color: $block-color;
+  border: 1px solid $border-color;
+  list-style: none;
+  cursor: pointer;
+  &:hover {
+    background-color: $hover-color;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 22px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #03B386;    
+  }
+  &:hover::before {
+    background-color: $green-color;
+  }
+}
+
+.errorItem {
+  position: relative;
+  padding: 17px 20px 17px 45px;
+  background-color: $block-color;
+  border: 1px solid $border-color;
+  list-style: none;
+  cursor: pointer;
+  &:hover {
+    background-color: $hover-color;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 22px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: #D62C1A;    
+  }
+  &:hover::before {
+    background-color: darkred;
+  }
+}

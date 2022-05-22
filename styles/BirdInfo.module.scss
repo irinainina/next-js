@@ -44,7 +44,6 @@
   font-size: $font-size-md;
   font-weight: 300;
   line-height: 1.35;
-  padding-top: 20px;
 }
 
 .listGroup {
@@ -62,7 +61,9 @@
 .cardBody {
   display: flex;
   min-width: 100%;
+  min-height: 155px;
   padding: 0;
+  margin-bottom: 20px;
   flex-direction: row;
 }
 

@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { useState } from 'react';
 import Header from '../../components/Header';
 import BirdsList from "../../components/BirdsList";
 import BirdQuiz from "../../components/BirdQuiz";
@@ -14,20 +15,36 @@ export const getServerSideProps = async (context) => {
   return {props: {birdsData: data.result.filter(el => el.questionNumber === +id)}}
 };
 
-const Card = ({ birdsData }) => (
-  <>
+const Card = ({ birdsData }) => {
+
+  const getRandomQuestion = () => Math.floor(Math.random() * 6 + 1);
+
+  const [ random, setRandom ] = useState(getRandomQuestion());
+  const [ cardId, setCardId ] = useState(0);
+  const [ questionId, setQuestionId ] = useState(1);
+  const [ win, setWin ] = useState(false);
+  const [ score, setScore ] = useState(0);
+
+  return (<>
     <Head>
       <title>quiz</title>
     </Head>
-    <Header />
+    <Header score={score}/>
     <div className={styles.container}>
-      <BirdQuiz />
+      <BirdQuiz birdsData={birdsData} 
+        questionId={questionId}
+        win={win}/>
       <div className={styles.wrap}>
-        <BirdsList birdsData={birdsData} />
-        <BirdInfo birdsData={birdsData} />
+        <BirdsList birdsData={birdsData}
+          win={win}
+          getCardId={(cardNumber) => setCardId(cardNumber)}
+        />
+        <BirdInfo birdsData={birdsData}
+          cardId={cardId}
+         />
       </div>
     </div>
-  </>
-);
+  </>)
+};
 
 export default Card;
