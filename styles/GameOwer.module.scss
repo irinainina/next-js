@@ -48,3 +48,13 @@
     border-color: $medium-green-color;
   }
 }
+
+@media (max-width: 470px) {  
+  .leadText {
+    font-size: 32px;    
+  }
+  .gameOverBtn {
+    display: block;
+    padding: 12px;
+  }
+}

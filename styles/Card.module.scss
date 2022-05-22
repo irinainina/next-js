@@ -43,3 +43,11 @@
   }
 }
 
+@media (max-width: 768px) {  
+  .wrap {
+    flex-direction: column;
+  }
+   .wrap .birdImage {
+    margin: 0 auto 25px;
+  } 
+}

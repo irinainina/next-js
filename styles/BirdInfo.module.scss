@@ -87,7 +87,7 @@
   .cardBody {
     flex-direction: column;
   }
-  .birdDetails .birdImage {
+  .birdImage {
     display: block;
     margin: 0 auto 25px;
   }
@@ -96,29 +96,38 @@
   }
 }
 
-@media (max-width: 767px) {  
+@media (max-width: 767px) {
+  .birdsInfoContainer {
+    width: 100%;
+  }
+
   .birdDetails {
     display: block;
-    margin-top: 40px;    
   }
   .cardBody {
     flex-direction: row;
   }
-  .birdDetails .birdImage {
-    margin-right: 2rem;
+  .birdImage {
+    margin-right: 32px;
   }
 }
 
 @media (max-width: 570px) {  
   .cardBody {
     flex-direction: column;
-  }
-  
-  .birdDetails .birdImage {
-    margin: 0 auto 25px;
-  }
-  
+  }  
   .cardBody {
     text-align: center;
+    justify-content: center;
+    align-items: center;
   }
+  .listGroup {
+    padding-top: 20px;
+  }
+  .birdName {
+    margin-left: 0;
+  }  
+  .birdSpecies {
+    margin-left: 0;
+  }  
 }

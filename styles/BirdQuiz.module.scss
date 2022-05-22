@@ -49,3 +49,19 @@
   color: #fff !important;
   justify-content: center !important;
 }
+
+@media (max-width: 767px) {
+  .birdQuizContainer {
+    flex-direction: column;
+  }
+  .birdQuizInfo {
+    width: 100%;
+  }
+  .list {
+    margin-left: 0;
+  }
+  .birdName {
+    padding-top: 20px;
+    text-align: center;
+  }
+}

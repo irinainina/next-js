@@ -52,7 +52,7 @@
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background-color: #03B386;    
+    background-color: $medium-green-color;    
   }
 }
 
@@ -74,6 +74,13 @@
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background-color: #D62C1A;    
+    background-color: $error-color;    
+  }
+}
+
+@media (max-width: 768px) {
+  .birdsList {
+    width: 100%;
+    margin-bottom: 20px;
   }
 }

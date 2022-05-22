@@ -18,7 +18,7 @@ const BirdQuiz = ({ birdsData, random, win }) => {
   const audioSrc = `https://cdn.sanity.io/files/drzbiexu/production/${audioKey}.mp3`;
 
   return (
-    <>
+    <> 
       <div className={styles.birdQuizContainer}>
         <Image
           src={win ? imgSrc : '/img/bird.jpg'}
