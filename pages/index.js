@@ -1,6 +1,6 @@
+import StartPage from '../components/StartPage';
 import Head from 'next/head';
 import Image from 'next/image';
-import StartPage from '../components/StartPage'
 
 const Home = () => (
   <>
@@ -8,7 +8,7 @@ const Home = () => (
       <title>song-bird</title>
     </Head>
     <StartPage />
-  </>  
+  </>
 );
 
 export default Home;

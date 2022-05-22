@@ -1,20 +1,20 @@
-import Link from 'next/link';
-import Nav from './Nav'
 import styles from '../styles/Header.module.scss';
+import Nav from './Nav';
+import Link from 'next/link';
 
-const Header = ({ score, questionId }) => {  
+const Header = ({ score, questionId }) => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
         <div className={styles.topPanel}>
           <Link href={'/'}>
             <a className={styles.logo}></a>
-          </Link>          
+          </Link>
           <h5 className={styles.scoreName}>
             Score: <span className={styles.score}>{score}</span>
           </h5>
         </div>
-        <Nav questionId={questionId}/>        
+        <Nav questionId={questionId} />
       </div>
     </div>
   );

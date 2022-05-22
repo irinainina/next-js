@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 const Cards = ({ cards }) => {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("/");
+    router.push('/');
   }, []);
 
   return null;
