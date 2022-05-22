@@ -54,9 +54,6 @@
     border-radius: 50%;
     background-color: #03B386;    
   }
-  &:hover::before {
-    background-color: $green-color;
-  }
 }
 
 .errorItem {
@@ -78,8 +75,5 @@
     height: 9px;
     border-radius: 50%;
     background-color: #D62C1A;    
-  }
-  &:hover::before {
-    background-color: darkred;
   }
 }

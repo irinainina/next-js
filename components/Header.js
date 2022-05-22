@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Nav from './Nav'
 import styles from '../styles/Header.module.scss';
 
-const Header = ({ score }) => {  
+const Header = ({ score, questionId }) => {  
   return (
     <div className={styles.container}>
       <div className={styles.header}>
@@ -14,7 +14,7 @@ const Header = ({ score }) => {
             Score: <span className={styles.score}>{score}</span>
           </h5>
         </div>
-        <Nav />        
+        <Nav questionId={questionId}/>        
       </div>
     </div>
   );

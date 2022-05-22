@@ -46,6 +46,7 @@ const BirdInfo = ({ birdsData, cardId }) => {
               <li className={styles.listGroupItem}>
               <AudioPlayer src={audioSrc}
                 className={styles.audio}
+                autoplay={false}
                 showJumpControls={false}
                 customControlsSection={[RHAP_UI.MAIN_CONTROLS]}
                 customProgressBarSection={[RHAP_UI.PROGRESS_BAR]}

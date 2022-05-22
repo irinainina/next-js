@@ -1,4 +1,5 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { useRouter } from "next/router";
 import styles from '../styles/Nav.module.scss';
 
 const navigation = [
@@ -10,12 +11,13 @@ const navigation = [
   { id: 6, title: 'Морские птицы', path: '/cards/6' },
 ];
 
-const Nav = ({ score = 25 }) => {
+const Nav = ({ score, questionId }) => {
+  const {asPath} = useRouter();
   const links = navigation.map(({ id, title, path }) => {
     return (
       <li className={styles.pageItem} key={id}>
         <Link href={path}>
-          <a className={id === 1 ? styles.pageLinkActive : styles.pageLink}>
+          <a className={asPath === path ? styles.pageLinkActive : styles.pageLink}>
             {title}
           </a>
         </Link>
