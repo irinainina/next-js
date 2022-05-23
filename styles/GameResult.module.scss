@@ -1,0 +1,115 @@
+@import './variables/all.scss';
+
+.gameOverContainer {
+  width: 100%;
+  max-width: 1140px;
+  padding: 48px 32px;
+  margin: 40px auto;
+  background-color: $block-color;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.leadText {
+  font-size: 48px;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.resultText {
+  font-size: $font-size-l;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 40px;
+}
+
+.hr {
+  margin-bottom: 20px;
+}
+
+.hrDark {
+  margin-bottom: 20px;
+  border-color: transparent;
+}
+
+.form {
+  display: inline-block;
+  margin-right: 40px;
+}
+
+.input {
+  padding: 12px;
+  border: 1px solid $dark-green-color;
+  border-right: 0;
+  border-radius: 5px 0px  0px 5px;
+  outline: none;
+  font-size: $font-size-l;
+  font-family: $font-roboto;
+  line-height: 25px;
+}
+
+.btn {
+  padding: 12px 40px;
+  font-size: $font-size-l;
+  font-family: $font-roboto;
+  line-height: 25px;
+  color: $white;
+  background-color: $medium-green-color;
+  border: 1px solid $dark-green-color;
+  border-radius: 0 5px 5px 0;
+  border-left: 0;
+  cursor: pointer;
+  &:hover {
+    color: $white;
+    background-color: $light-green-color;
+    border-color: $medium-green-color;
+  }
+  &:active {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.5);
+  }
+}
+
+.leaderBtn {
+  padding: 12px 80px;
+  border-radius: 5px;
+}
+
+@media (max-width: 992px) {
+  .form {
+    display: block;
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 40px;
+  }
+  .input {
+    width: 50%;
+  }
+  .btn {
+    display: inline-block;
+    width: 50%; 
+    padding: 12px;
+  }
+  .leaderBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .input {
+    width: 100%;
+    margin-bottom: 40px;
+    border-radius: 5px;
+  }
+  .btn {
+    display: block;
+    width: 100%; 
+    padding: 12px;
+    border-radius: 5px;
+    
+  }
+  .leadText {
+    font-size: 32px;    
+  }
+
+}
