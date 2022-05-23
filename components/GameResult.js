@@ -7,11 +7,12 @@ const GameResult = ({ score }) => {
 
   const getName = (event) => {
     setInputValue(event.target.value);
-    console.log(inputValue);
   };
 
   const saveResult = async (event) => {
     event.preventDefault();
+    if(!inputValue) return;
+    
     const mutations = [
       {
         createOrReplace: {
@@ -30,15 +31,15 @@ const GameResult = ({ score }) => {
       credentials: 'same-origin',
       headers: {
         'Content-type': 'application/json',
-        Authorization:
-          'Bearer skorcZDHIOMgFrZM4rmRa2V3TLDBb9rukzvmFEDJjuMkQgjPNAOavU4Yd7WJFMPbmVTIMBWeRTgdmMamYzSRe2ijZ3kZVKAdLgFM8BV74hchHXd1vehKiBuw7V0iUvz9XcUjQgPHiUmM1PwHLtcbTGZd2gbTibOcwGUx7Dv32kULikOYNLCx',
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
       },
       redirect: 'follow',
       referrerPolicy: 'no-referrer',
       body: JSON.stringify({ mutations }),
     })
       .then((response) => response.json())
-      .then((result) => console.log(result))
+      .then((result) => {setInputValue(inputValue => '');
+      })
       .catch((error) => console.error(error));
   };
 
@@ -49,6 +50,8 @@ const GameResult = ({ score }) => {
           type="text"
           className={styles.input}
           placeholder="Ваше имя"
+          maxLength="15"
+          value={inputValue}
           onChange={getName}
         />
         <button type="submit" className={styles.btn}>
