@@ -1,4 +1,5 @@
-import styles from '../styles/BirdInfo.module.scss';
+import imageSize from '../../constants/imageSize';
+import styles from './BirdInfo.module.scss';
 import Image from 'next/image';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
@@ -34,8 +35,8 @@ const BirdInfo = ({ birdsData, cardId }) => {
           <div className={styles.cardBody}>
             <Image
               src={imgSrc}
-              width={200}
-              height={155}
+              width={imageSize.width}
+              height={imageSize.height}
               alt="bird"
               className={styles.birdImage}
               layout="fixed"

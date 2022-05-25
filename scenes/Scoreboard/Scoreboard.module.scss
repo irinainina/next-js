@@ -1,6 +1,6 @@
-@import './variables/all.scss';
+@import '../../styles/variables/all.scss';
 
-.gameOverContainer {
+.container {
   width: 100%;
   max-width: 1140px;
   padding: 48px 32px;
@@ -10,7 +10,7 @@
   text-align: center;
 }
 
-.leadText {
+.title {
   font-size: 48px;
   font-weight: 300;
   margin: 0;
@@ -25,7 +25,7 @@
   border-color: transparent;
 }
 
-.scoreList {
+.list {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -34,11 +34,32 @@
   margin-bottom: 40px;
 }
 
-.listItem {
+.date,
+.name,
+.score {
+  display: inline-block;
+  min-width: -webkit-min-content;
+  padding: 0 5px;
+  text-align: center;
+}
+
+.date {
+  width: 25%;
+}
+
+.name {
+  width: 55%;
+}
+
+.score {
+  width: 20%;
+}
+
+.item {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 17px 20px 17px 45px;
+  padding: 17px 10px;
   background-color: $block-color;
   border: 1px solid $border-color;
   list-style: none;
@@ -47,7 +68,7 @@
   }
 }
 
-.gameOverBtn {
+.btn {
   padding: 12px 80px;
   font-size: $font-size-l;
   font-family: $font-roboto;
@@ -64,10 +85,10 @@
 }
 
 @media (max-width: 470px) {  
-  .leadText {
+  .title {
     font-size: 32px;    
   }
-  .gameOverBtn {
+  .btn {
     display: block;
     padding: 12px;
   }

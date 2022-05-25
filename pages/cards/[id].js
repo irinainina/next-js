@@ -1,8 +1,8 @@
-import BirdInfo from '../../components/BirdInfo';
-import BirdQuiz from '../../components/BirdQuiz';
-import BirdsList from '../../components/BirdsList';
-import Header from '../../components/Header';
-import styles from '../../styles/Card.module.scss';
+import BirdInfo from '../../components/BirdInfo/BirdInfo';
+import BirdQuiz from '../../components/BirdQuiz/BirdQuiz';
+import BirdsList from '../../components/BirdsList/BirdsList';
+import Header from '../../components/Header/Header';
+import styles from './card.module.scss';
 import Head from 'next/head';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';

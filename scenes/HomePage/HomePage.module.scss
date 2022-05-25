@@ -1,4 +1,4 @@
-@import './variables/all.scss';
+@import '../../styles/variables/all.scss';
 
 .mainContainer {
   display: flex;
@@ -8,7 +8,7 @@
   min-height: 100vh;
   padding: 0 15px;
   margin: 0 auto;
-  background-image: url("../public/img/bird.png");
+  background-image: url("../../public/img/bird.png");
   background-repeat: no-repeat;
   background-position: right center;
 }

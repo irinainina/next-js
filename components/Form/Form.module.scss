@@ -1,37 +1,4 @@
-@import './variables/all.scss';
-
-.gameOverContainer {
-  width: 100%;
-  max-width: 1140px;
-  padding: 48px 32px;
-  margin: 40px auto;
-  background-color: $block-color;
-  border-radius: 5px;
-  text-align: center;
-}
-
-.leadText {
-  font-size: 48px;
-  font-weight: 300;
-  margin: 0;
-  margin-bottom: 20px;
-}
-
-.resultText {
-  font-size: $font-size-l;
-  font-weight: 300;
-  margin: 0;
-  margin-bottom: 40px;
-}
-
-.hr {
-  margin-bottom: 20px;
-}
-
-.hrDark {
-  margin-bottom: 20px;
-  border-color: transparent;
-}
+@import '../../styles/variables/all.scss';
 
 .form {
   display: inline-block;
@@ -70,11 +37,6 @@
   }
 }
 
-.leaderBtn {
-  padding: 12px 80px;
-  border-radius: 5px;
-}
-
 @media (max-width: 992px) {
   .form {
     display: block;
@@ -90,9 +52,6 @@
     width: 50%; 
     padding: 12px;
   }
-  .leaderBtn {
-    width: 100%;
-  }
 }
 
 @media (max-width: 540px) {
@@ -106,10 +65,5 @@
     width: 100%; 
     padding: 12px;
     border-radius: 5px;
-    
   }
-  .leadText {
-    font-size: 32px;    
-  }
-
 }

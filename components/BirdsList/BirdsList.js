@@ -1,4 +1,4 @@
-import styles from '../styles/BirdsList.module.scss';
+import styles from './BirdsList.module.scss';
 import { useState } from 'react';
 
 const BirdsList = ({ birdsData, getCardId, random }) => {

@@ -1,4 +1,4 @@
-import styles from '../styles/ScoreBoard.module.scss';
+import Scoreboard from '../scenes/Scoreboard/Scoreboard';
 import Head from 'next/head';
 import Link from 'next/link';
 
@@ -16,30 +16,13 @@ export const getServerSideProps = async () => {
 };
 
 const ScoreBoard = ({ scores }) => {
-  const transformDate = (date) =>
-    date.split('T')[0].split('-').reverse().join('.');
-
   return (
-    <div className={styles.gameOverContainer}>
+    <>
       <Head>
         <title>scoreboard</title>
       </Head>
-      <h1 className={styles.leadText}>Таблица лидеров</h1>
-      <hr className={styles.hr} />
-      <ul className={styles.scoreList}>
-        {scores.map(({ _createdAt, _id, name, score }) => (
-          <li className={styles.listItem} key={_id}>
-            <span className={styles.date}>{transformDate(_createdAt)}</span>
-            <span className={styles.name}>{name}</span>
-            <span className={styles.score}>{score}</span>
-          </li>
-        ))}
-      </ul>
-      <hr className={styles.hrDark} />
-      <Link href="/cards/1">
-        <a className={styles.gameOverBtn}>Попробовать еще раз!</a>
-      </Link>
-    </div>
+      <Scoreboard scores={scores}/>
+    </>
   );
 };
 

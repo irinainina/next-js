@@ -1,5 +1,5 @@
-import styles from '../styles/Header.module.scss';
-import Nav from './Nav';
+import styles from './Header.module.scss';
+import Nav from '../Nav/Nav';
 import Link from 'next/link';
 
 const Header = ({ score, questionId }) => {
