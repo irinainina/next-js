@@ -1,4 +1,5 @@
 import styles from './BirdsList.module.scss';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 const BirdsList = ({ birdsData, getCardId, random }) => {
@@ -19,6 +20,12 @@ const BirdsList = ({ birdsData, getCardId, random }) => {
       ))}
     </ul>
   );
+};
+
+BirdsList.propTypes = {
+  birdsData: PropTypes.object,
+  random: PropTypes.number,
+  getCardId: PropTypes.number
 };
 
 export default BirdsList;

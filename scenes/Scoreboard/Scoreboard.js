@@ -1,5 +1,6 @@
 import styles from './Scoreboard.module.scss';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 const Scoreboard = ({ scores }) => {
   const transformDate = (date) =>
@@ -15,7 +16,7 @@ const Scoreboard = ({ scores }) => {
             <span className={styles.date}>{transformDate(_createdAt)}</span>
             <span className={styles.name}>{name}</span>
             <span className={styles.score}>{score}</span>
-          </li> 
+          </li>
         ))}
       </ul>
       <hr className={styles.hrDark} />
@@ -24,6 +25,10 @@ const Scoreboard = ({ scores }) => {
       </Link>
     </div>
   );
+};
+
+Scoreboard.propTypes = {
+  scores: PropTypes.object,
 };
 
 export default Scoreboard;

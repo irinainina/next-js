@@ -1,5 +1,6 @@
 import Form from '../../components/Form/Form';
 import styles from './GameResult.module.scss';
+import PropTypes from 'prop-types';
 import winImg from '../../public/img/win.jpg';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -30,6 +31,10 @@ const GameResult = ({score}) => {
       </div>
     </>
   );
+};
+
+GameResult.propTypes = {
+  score: PropTypes.number
 };
 
 export default GameResult;

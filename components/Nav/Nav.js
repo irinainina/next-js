@@ -1,6 +1,7 @@
 import levels from '../../constants/levels';
 import styles from './Nav.module.scss';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 
 const navigation = [
@@ -31,6 +32,11 @@ const Nav = ({ score, questionId }) => {
   });
 
   return <ul className={styles.pagination}>{links}</ul>;
+};
+
+Nav.propTypes = {
+  score: PropTypes.number,
+  questionId: PropTypes.number
 };
 
 export default Nav;

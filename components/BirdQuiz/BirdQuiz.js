@@ -2,6 +2,7 @@ import imageSize from '../../constants/imageSize';
 import winAudio from '../../public/audio/win.mp3';
 import styles from './BirdQuiz.module.scss';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
@@ -55,6 +56,12 @@ const BirdQuiz = ({ birdsData, random, win }) => {
       </div>
     </>
   );
+};
+
+BirdQuiz.propTypes = {
+  birdsData: PropTypes.object,
+  random: PropTypes.number,
+  win: PropTypes.bool
 };
 
 export default BirdQuiz;

@@ -1,9 +1,10 @@
 import saveResult from '../../lib/mutations';
 import styles from './Form.module.scss';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const GameResult = ({ score }) => {
+const Form = ({ score }) => {
   const router = useRouter();
   const redirect = () => {
     router.push('/scoreboard');
@@ -38,4 +39,8 @@ const GameResult = ({ score }) => {
   );
 };
 
-export default GameResult;
+Form.propTypes = {
+  score: PropTypes.number,
+};
+
+export default Form;

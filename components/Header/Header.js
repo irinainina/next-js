@@ -1,6 +1,7 @@
-import styles from './Header.module.scss';
 import Nav from '../Nav/Nav';
+import styles from './Header.module.scss';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 const Header = ({ score, questionId }) => {
   return (
@@ -18,6 +19,11 @@ const Header = ({ score, questionId }) => {
       </div>
     </div>
   );
+};
+
+Header.propTypes = {
+  score: PropTypes.number,
+  questionId: PropTypes.number
 };
 
 export default Header;

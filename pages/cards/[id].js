@@ -5,6 +5,7 @@ import Header from '../../components/Header/Header';
 import styles from './card.module.scss';
 import Head from 'next/head';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
 export const getServerSideProps = async (context) => {
@@ -81,6 +82,10 @@ const Card = ({ birdsData }) => {
       </div>
     </>
   );
+};
+
+Card.propTypes = {
+  birdsData: PropTypes.object,
 };
 
 export default Card;
