@@ -69,9 +69,7 @@ const Card = ({ birdsData }) => {
           />
           <BirdInfo birdsData={birdsData} cardId={cardId} />
         </div>
-        <Link
-          href={questionId < 7 ? `/cards/${questionId}` : `/game-over?${score}`}
-        >
+        <Link href={questionId < 7 ? `/cards/${questionId}` : `/game-over?${score}`}>
           <a
             className={win ? styles.btnActive : styles.btn}
             onClick={() => getNextLevel()}

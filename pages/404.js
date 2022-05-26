@@ -1,17 +1,9 @@
 import Page404 from '../scenes/Page404/Page404';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import useRedirect from '../hooks/useRedirect';
 
-const Error = () => {
-  const router = useRouter();
-
-  useEffect(() => {
-    setTimeout(() => {
-      router.push('/');
-    }, 3000);
-  }, [router]);
-
+const Error = () => {  
+  useRedirect();
   return (
     <>
       <Head>

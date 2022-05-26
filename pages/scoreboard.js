@@ -11,7 +11,7 @@ export const getServerSideProps = async () => {
     return { notFound: true };
   }
   return {
-    props: { scores: data.result.sort((a, b) => (a.score < b.score ? 1 : -1)) },
+    props: { scores: data.result.sort((a, b) => (a.score < b.score ? 1 : -1))},
   };
 };
 
