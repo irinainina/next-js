@@ -59,7 +59,7 @@ const BirdQuiz = ({ birdsData, random, win }) => {
 };
 
 BirdQuiz.propTypes = {
-  birdsData: PropTypes.object,
+  birdsData: PropTypes.array,
   random: PropTypes.number,
   win: PropTypes.bool
 };

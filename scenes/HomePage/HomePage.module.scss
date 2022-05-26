@@ -1,26 +1,26 @@
 @import '../../styles/variables/all.scss';
 
-.mainContainer {
+.container {
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   max-width: 1140px;
   min-height: 100vh;
   padding: 0 15px;
   margin: 0 auto;
-  background-image: url("../../public/img/bird.png");
-  background-repeat: no-repeat;
-  background-position: right center;
 }
 
 .titleContainer {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 500px;
-  height: 260px;
-  padding-bottom: 60px;
+  height: 220px;
 }
 
 .title {
@@ -38,7 +38,7 @@
   letter-spacing: 3px;
 }
 
-.startBtn {
+.btn {
   padding: 12px 80px;
   font-size: $font-size-l;
   font-family: $font-roboto;
@@ -54,17 +54,29 @@
   }
 }
 
+.video {
+  position: absolute;
+  right: -100px;
+  transform: rotateY(180deg);
+  width: 750px;
+  height: 750px;
+}
+
 @media (max-width: 570px) {
-  .mainContainer {
-    background-image: none;
+  .container {
+    justify-content: center;
   }
   .title {
     font-size: 44px;
     letter-spacing: 0;
-  }
-  
+  }  
   .subTitle {
     font-size: 40px;
     letter-spacing: 0;
+  }
+  .video {
+    right: -150px;
+    max-width: 150%;
+    max-height: 150%;
   }
 }

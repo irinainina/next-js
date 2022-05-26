@@ -85,7 +85,7 @@ const Card = ({ birdsData }) => {
 };
 
 Card.propTypes = {
-  birdsData: PropTypes.object,
+  birdsData: PropTypes.array,
 };
 
 export default Card;

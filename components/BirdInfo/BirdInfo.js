@@ -8,7 +8,6 @@ import 'react-h5-audio-player/lib/styles.css';
 const BirdInfo = ({ birdsData, cardId }) => {
   
   if (cardId) {
-    console.log(typeof(cardId))
     const birdData = birdsData.filter((el) => el.cardNumber === cardId)[0];
 
     const imgKey = birdData.image.asset._ref
@@ -72,7 +71,7 @@ const BirdInfo = ({ birdsData, cardId }) => {
 };
 
 BirdInfo.propTypes = {
-  birdsData: PropTypes.object,
+  birdsData: PropTypes.array,
   cardId: PropTypes.number
 };
 

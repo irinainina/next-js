@@ -23,9 +23,9 @@ const BirdsList = ({ birdsData, getCardId, random }) => {
 };
 
 BirdsList.propTypes = {
-  birdsData: PropTypes.object,
+  birdsData: PropTypes.array,
   random: PropTypes.number,
-  getCardId: PropTypes.number
+  getCardId: PropTypes.func
 };
 
 export default BirdsList;

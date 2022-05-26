@@ -40,7 +40,7 @@ const Form = ({ score }) => {
 };
 
 Form.propTypes = {
-  score: PropTypes.number,
+  score: PropTypes.string,
 };
 
 export default Form;

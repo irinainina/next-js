@@ -1,6 +1,6 @@
 @import '../../styles/variables/all.scss';
 
-.gameOverContainer {
+.container {
   width: 100%;
   max-width: 1140px;
   padding: 48px 32px;
@@ -54,23 +54,7 @@
   }
 }
 
-.leaderBtn {
-  padding: 12px 80px;
-  border-radius: 5px;
-}
-
-@media (max-width: 992px) {
-  .btn {
-    display: inline-block;
-    width: 50%; 
-    padding: 12px;
-  }
-  .leaderBtn {
-    width: 100%;
-  }
-}
-
-@media (max-width: 540px) {
+@media (max-width: 470px) {
   .btn {
     display: block;
     width: 100%; 

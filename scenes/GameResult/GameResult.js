@@ -10,7 +10,7 @@ import { useRouter } from 'next/router';
 const GameResult = ({score}) => {
   return (
     <>
-      <div className={styles.gameOverContainer}>
+      <div className={styles.container}>
         <h1 className={styles.leadText}>Поздравляем!</h1>
         <p className={styles.resultText}>
           Вы прошли викторину и набрали {score} из 30 возможных баллов
@@ -25,16 +25,13 @@ const GameResult = ({score}) => {
         />
         <hr className={styles.hrDark} />
         <Form score={score} />
-        <Link href="/scoreboard">
-          <a className={styles.btn + ' ' + styles.leaderBtn}>Таблица лидеров</a>
-        </Link>
       </div>
     </>
   );
 };
 
 GameResult.propTypes = {
-  score: PropTypes.number
+  score: PropTypes.string
 };
 
 export default GameResult;

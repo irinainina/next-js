@@ -1,7 +1,6 @@
-/** @type {import('next').NextConfig} */
-
-module.exports = {
-  reactStrictMode: true,  
+const withVideos = require('next-videos');
+const nextConfig = withVideos({
+  reactStrictMode: true,
   webpack(config, options) {
     config.module.rules.push({
       test: /\.(ogg|mp3|wav|mpe?g)$/i,
@@ -17,6 +16,8 @@ module.exports = {
     return config;
   },
   images: {
-    domains: ['cdn.sanity.io']
+    domains: ['cdn.sanity.io'],
   },
-};
+});
+
+module.exports = nextConfig;

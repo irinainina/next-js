@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 const Scoreboard = ({ scores }) => {
   const transformDate = (date) =>
     date.split('T')[0].split('-').reverse().join('.');
-
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Таблица лидеров</h1>
@@ -28,7 +27,7 @@ const Scoreboard = ({ scores }) => {
 };
 
 Scoreboard.propTypes = {
-  scores: PropTypes.object,
+  scores: PropTypes.array
 };
 
 export default Scoreboard;
