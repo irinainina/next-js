@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  min-height: 100vh;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-top: -60px;
+  font-weight: 500;
+}

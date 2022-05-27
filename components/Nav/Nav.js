@@ -1,14 +1,16 @@
-import styles from '../styles/Nav.module.scss';
+import levels from '../../constants/levels';
+import styles from './Nav.module.scss';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 
 const navigation = [
-  { id: 1, title: 'Разминка', path: '/cards/1' },
-  { id: 2, title: 'Воробьиные', path: '/cards/2' },
-  { id: 3, title: 'Лесные птицы', path: '/cards/3' },
-  { id: 4, title: 'Певчие птицы', path: '/cards/4' },
-  { id: 5, title: 'Хищные птицы', path: '/cards/5' },
-  { id: 6, title: 'Морские птицы', path: '/cards/6' },
+  { id: 1, title: levels.introduction, path: '/cards/1' },
+  { id: 2, title: levels.sparrows, path: '/cards/2' },
+  { id: 3, title: levels.forestbirds, path: '/cards/3' },
+  { id: 4, title: levels.songbirds, path: '/cards/4' },
+  { id: 5, title: levels.predatorbirds, path: '/cards/5' },
+  { id: 6, title: levels.seabirds, path: '/cards/6' },
 ];
 
 const Nav = ({ score, questionId }) => {
@@ -30,6 +32,11 @@ const Nav = ({ score, questionId }) => {
   });
 
   return <ul className={styles.pagination}>{links}</ul>;
+};
+
+Nav.propTypes = {
+  score: PropTypes.number,
+  questionId: PropTypes.number
 };
 
 export default Nav;

@@ -1,13 +1,12 @@
-import StartPage from '../components/StartPage';
+import HomePage from '../scenes/HomePage/HomePage';
 import Head from 'next/head';
-import Image from 'next/image';
 
 const Home = () => (
   <>
     <Head>
       <title>song-bird</title>
     </Head>
-    <StartPage />
+    <HomePage />
   </>
 );
 

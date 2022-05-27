@@ -11,9 +11,10 @@
     "stylelint:fix": "stylelint 'src/**/*{.css,.scss}' --fix"
   },
   "dependencies": {
-    "@sanity/client": "^3.3.0",
     "next": "12.1.6",
-    "next-sanity-image": "^3.2.1",
+    "next-auth": "^4.3.4",
+    "next-videos": "^1.4.0",
+    "prop-types": "^15.8.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-h5-audio-player": "^3.8.4",

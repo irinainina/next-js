@@ -1,22 +1,14 @@
-import styles from '../styles/BirdInfo.module.scss';
+import imageSize from '../../constants/imageSize';
+import styles from './BirdInfo.module.scss';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
 const BirdInfo = ({ birdsData, cardId }) => {
-  if (!cardId) {
-    return (
-      <div className={styles.birdsInfoContainer}>
-        <div className={styles.birdDetails}>
-          <p className={styles.instruction}>
-            <span>Послушайте плеер.</span>
-            <span>Выберите птицу из списка</span>
-          </p>
-        </div>
-      </div>
-    );
-  } else {
-    const birdData = birdsData.filter((el) => el.cardNumber === +cardId)[0];
+  
+  if (cardId) {
+    const birdData = birdsData.filter((el) => el.cardNumber === cardId)[0];
 
     const imgKey = birdData.image.asset._ref
       .replace(/image-/, '')
@@ -27,15 +19,14 @@ const BirdInfo = ({ birdsData, cardId }) => {
       .replace(/file-/, '')
       .replace(/-mp3/, '');
     const audioSrc = `https://cdn.sanity.io/files/drzbiexu/production/${audioKey}.mp3`;
-
     return (
       <div className={styles.birdsInfoContainer}>
         <div className={styles.birdDetails}>
           <div className={styles.cardBody}>
             <Image
               src={imgSrc}
-              width={200}
-              height={155}
+              width={imageSize.width}
+              height={imageSize.height}
               alt="bird"
               className={styles.birdImage}
               layout="fixed"
@@ -65,7 +56,23 @@ const BirdInfo = ({ birdsData, cardId }) => {
         </div>
       </div>
     );
+  } else {
+    return (
+      <div className={styles.birdsInfoContainer}>
+        <div className={styles.birdDetails}>
+          <p className={styles.instruction}>
+            <span>Послушайте плеер.</span>
+            <span>Выберите птицу из списка</span>
+          </p>
+        </div>
+      </div>
+    );
   }
+};
+
+BirdInfo.propTypes = {
+  birdsData: PropTypes.array,
+  cardId: PropTypes.number
 };
 
 export default BirdInfo;

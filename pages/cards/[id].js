@@ -1,10 +1,11 @@
-import BirdInfo from '../../components/BirdInfo';
-import BirdQuiz from '../../components/BirdQuiz';
-import BirdsList from '../../components/BirdsList';
-import Header from '../../components/Header';
-import styles from '../../styles/Card.module.scss';
+import BirdInfo from '../../components/BirdInfo/BirdInfo';
+import BirdQuiz from '../../components/BirdQuiz/BirdQuiz';
+import BirdsList from '../../components/BirdsList/BirdsList';
+import Header from '../../components/Header/Header';
+import styles from './card.module.scss';
 import Head from 'next/head';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
 export const getServerSideProps = async (context) => {
@@ -68,9 +69,7 @@ const Card = ({ birdsData }) => {
           />
           <BirdInfo birdsData={birdsData} cardId={cardId} />
         </div>
-        <Link
-          href={questionId < 7 ? `/cards/${questionId}` : `/game-over?${score}`}
-        >
+        <Link href={questionId < 7 ? `/cards/${questionId}` : `/game-over?${score}`}>
           <a
             className={win ? styles.btnActive : styles.btn}
             onClick={() => getNextLevel()}
@@ -81,6 +80,10 @@ const Card = ({ birdsData }) => {
       </div>
     </>
   );
+};
+
+Card.propTypes = {
+  birdsData: PropTypes.array,
 };
 
 export default Card;

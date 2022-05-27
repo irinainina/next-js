@@ -1,6 +1,8 @@
-import winAudio from '../public/audio/win.mp3';
-import styles from '../styles/BirdQuiz.module.scss';
+import imageSize from '../../constants/imageSize';
+import winAudio from '../../public/audio/win.mp3';
+import styles from './BirdQuiz.module.scss';
 import Image from 'next/image';
+import PropTypes from 'prop-types';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
@@ -22,8 +24,8 @@ const BirdQuiz = ({ birdsData, random, win }) => {
       <div className={styles.birdQuizContainer}>
         <Image
           src={win ? imgSrc : '/img/bird.jpg'}
-          width={200}
-          height={155}
+          width={imageSize.width}
+          height={imageSize.height}
           alt="bird"
           className={styles.birdImage}
           layout="fixed"
@@ -54,6 +56,12 @@ const BirdQuiz = ({ birdsData, random, win }) => {
       </div>
     </>
   );
+};
+
+BirdQuiz.propTypes = {
+  birdsData: PropTypes.array,
+  random: PropTypes.number,
+  win: PropTypes.bool
 };
 
 export default BirdQuiz;
