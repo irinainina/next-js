@@ -1,0 +1,96 @@
+.main {
+  margin-top: -10px;
+}
+
+
+.container {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+  width: 780px;
+  height: 585px;
+  border-radius: 8px;
+}
+
+.card {
+  background: #222;
+  border-radius: 5px;
+  border: 1px solid #555;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.level {
+  padding: 0 0 0 5px;
+}
+
+.birdInfo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; 
+}
+
+.cardNum,
+.birdName,
+.species {
+  padding: 0 5px;
+  margin: 0;
+  line-height: 32px;
+  font-size: 20px;
+}
+
+.birdName {
+  font-weight: 400;
+}
+
+.hyphen {
+  padding: 0 5px;
+}
+
+.description {  
+  padding: 10px;
+  padding-top: 20px;
+  margin: 0;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 50px;
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: transparent;
+  outline: 0;  
+  border: 0;
+  cursor: pointer;
+}
+
+.level {
+  text-align: left;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 5px;
+  width: 500px;
+  height: 280px;
+}
+
+.audio {
+  padding: 0 !important;
+  padding-top: 20px !important;
+  background-color: transparent !important;
+}
+
+.audio * {
+  color: #fff !important;
+  justify-content: center !important;
+}

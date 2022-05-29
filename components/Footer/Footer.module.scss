@@ -1,0 +1,54 @@
+@import '../../styles/variables/all.scss';
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $header-color;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  padding: 0 25px;
+  height: 48px;
+  margin: 0 auto;
+}
+
+.footerData {
+  display: flex;
+  align-items: center;
+}
+
+.copyright {
+  padding-right: 20px;
+}
+
+.github {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 20px;
+  transition: .3s;
+}
+
+.github:hover {
+  color: #bdae82;
+}
+
+.companyLogo {
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;  
+  background-image: url("../../public/svg/halo-lab.svg");
+}
+
+@media (max-width: 470px) {  
+  .container {
+    padding: 0 15px;
+  }
+}

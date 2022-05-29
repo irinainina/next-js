@@ -1,0 +1,37 @@
+@import '../../styles/variables/all.scss';
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  padding: 0 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.header {
+  display: flex;  
+  flex-direction: column;
+  margin-top: .5rem;
+}
+
+.topPanel {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  justify-content: space-between;
+}
+
+.scoreName {
+  padding-right: 10px;
+  margin: 0;
+  margin-left: auto;
+  font-size: $font-size-lg;
+  font-weight: 400;
+}
+
+.score {
+  margin: 0;
+  font-size: $font-size-lg;
+  font-weight: 400;
+  line-height: 20px;
+}

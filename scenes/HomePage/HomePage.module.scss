@@ -38,8 +38,12 @@
   letter-spacing: 3px;
 }
 
+.btns {
+  display: flex;
+}
+
 .btn {
-  padding: 12px 80px;
+  padding: 12px 45px;
   font-size: $font-size-l;
   font-family: $font-roboto;
   color: $white;
@@ -52,6 +56,10 @@
     background-color: $light-green-color;
     border-color: $medium-green-color;
   }
+}
+
+.btn:nth-child(1) {
+  margin-right: 20px;
 }
 
 .video {

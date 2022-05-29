@@ -1,17 +1,20 @@
 import '../styles/globals.scss';
-import Head from 'next/head';
+import Layout from '../components/Layout'
 import { SessionProvider } from 'next-auth/react';
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
   return (
-    <>
-      <Head>
-        <title>game</title>
-      </Head>
-      <SessionProvider session={pageProps.session}>
+    <SessionProvider session={pageProps.session}>
+    {router.pathname !== "/" ? (
+      <Layout>
         <Component {...pageProps} />
-      </SessionProvider>
-    </>
+      </Layout>
+    ) : (
+      <Component {...pageProps} />
+    )}
+    </SessionProvider>
   );
 }
 
