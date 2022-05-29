@@ -5,6 +5,11 @@
   transition: .3s;
 }
 
+html {
+  overflow-x: hidden;
+  margin-right: calc(-1 * (100vw - 100%));
+}
+
 html,
 body {
   min-width: 320px;

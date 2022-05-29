@@ -2,6 +2,8 @@ import BirdInfo from '../../components/BirdInfo/BirdInfo';
 import BirdQuiz from '../../components/BirdQuiz/BirdQuiz';
 import BirdsList from '../../components/BirdsList/BirdsList';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
+import Questions from '../../components/Questions/Questions';
 import styles from './card.module.scss';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -58,7 +60,7 @@ const Card = ({ birdsData }) => {
       <Head>
         <title>quiz</title>
       </Head>
-      <Header score={score} questionId={questionId} />
+      <Questions score={score} questionId={questionId} />
       <div className={styles.container}>
         <BirdQuiz birdsData={birdsData} random={random} win={win} />
         <div className={styles.wrap}>

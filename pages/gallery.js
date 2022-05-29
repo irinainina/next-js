@@ -1,4 +1,4 @@
-import ImageGallery from '../components/ImageGallery/ImageGallery';
+import ImageGallery from '../scenes/ImageGallery/ImageGallery';
 import Head from 'next/head';
 
 export const getServerSideProps = async () => {

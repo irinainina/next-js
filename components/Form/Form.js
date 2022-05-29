@@ -3,14 +3,16 @@ import styles from './Form.module.scss';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 const Form = ({ score }) => {
+  const { data: session } = useSession();
   const router = useRouter();
   const redirect = () => {
     router.push('/scoreboard');
   };
 
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(session ? session.user.name : '');
   const getName = (event) => {
     setInputValue(event.target.value);
   };

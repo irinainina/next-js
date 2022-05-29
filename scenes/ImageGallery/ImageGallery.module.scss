@@ -1,0 +1,71 @@
+@import '../../styles/variables/all.scss';
+
+.container {
+  width: 100%;
+  max-width: 1140px;
+  padding: 32px;
+  margin: 20px auto;
+  background-color: $block-color;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.hr {
+  margin-bottom: 40px;
+}
+
+.levels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 130px;
+  height: 590px;
+  margin-left: 10px;
+}
+
+.card {
+  position: relative;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.levelTitle {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 32px;
+  background-color: $body-color;
+  border-radius: 0 0 5px 5px ;
+}
+
+.image {
+  object-fit: cover;
+  object-position: bottom center;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+}
+
+.sliderContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+

@@ -1,29 +1,29 @@
-import Nav from '../Nav/Nav';
 import styles from './Header.module.scss';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 
-const Header = ({ score, questionId }) => {
+const Header = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.header}>
-        <div className={styles.topPanel}>
+    <div className={styles.header}>
+      <div className={styles.container}>
+        <nav className={styles.nav}>
           <Link href={'/'}>
             <a className={styles.logo}></a>
           </Link>
-          <h5 className={styles.scoreName}>
-            Score: <span className={styles.score}>{score}</span>
-          </h5>
-        </div>
-        <Nav questionId={questionId} />
+          <div className={styles.pagesLink}>
+            <Link href={'/cards/1'}>
+              <a className={styles.link}>Игра</a>
+            </Link>
+            <Link href={'/gallery'}>
+              <a className={styles.link}>Галерея</a>
+            </Link>
+            <Link href={'/scoreboard'}>
+              <a className={styles.link + ' ' + styles.lastLink}>Результаты</a>
+            </Link>
+          </div>
+        </nav>
       </div>
     </div>
   );
-};
-
-Header.propTypes = {
-  score: PropTypes.number,
-  questionId: PropTypes.number
 };
 
 export default Header;
