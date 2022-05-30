@@ -7,7 +7,7 @@
   justify-content: space-between;
   width: 100%;
   max-width: 1140px;
-  min-height: 100vh;
+  min-height: calc(100vh - 50px);
   padding: 0 15px;
   margin: 0 auto;
 }

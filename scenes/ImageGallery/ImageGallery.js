@@ -8,33 +8,29 @@ import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 
 const ImageGallery = ({ birdsData }) => {
-  const [questionId, setQuestionId] = useState(2);
+  const [questionId, setQuestionId] = useState(1);
+  const [audioId, setAudioId] = useState(2);
   useEffect(() => {
-    setQuestionId(1);
+    setAudioId(1);
   }, []);
 
   const getQuestionId = (index) => {
     setQuestionId(index + 1);
+    setAudioId(index + 1);
   };
 
   const levelsArr = Object.values(levels);
   const elements = levelsArr.map((item, index) => {
     return (
       <div
-        className={styles.card}
+        className={styles.pageItem}
         key={index}
+        style={{ 
+          backgroundImage: `url(${getImg(birdsData, index + 1, 1)})` 
+        }}
         onClick={() => getQuestionId(index)}
       >
-        <Image
-          src={getImg(birdsData, index + 1, 1)}
-          width={130}
-          height={88}
-          alt="bird"
-          className={styles.image}
-          layout="fixed"
-          priority
-        />
-        <h2 className={styles.levelTitle}>{item}</h2>
+        <h2 className={styles.pageLink}>{item}</h2>
       </div>
     );
   });
@@ -45,8 +41,10 @@ const ImageGallery = ({ birdsData }) => {
         <h1 className={styles.title}>Галерея птиц</h1>
         <hr className={styles.hr} />
         <div className={styles.sliderContainer}>
-          <div className={styles.levels}>{elements}</div>
-          <Slider birdsData={birdsData} questionId={questionId}/>
+          <div className={styles.pagination}>{elements}</div>
+          <Slider birdsData={birdsData} 
+          questionId={questionId}
+          audioId={audioId}/>
         </div>
       </div>
     </>

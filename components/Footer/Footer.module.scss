@@ -1,11 +1,9 @@
 @import '../../styles/variables/all.scss';
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  width: 100%;
   background-color: $header-color;
+  margin-top: auto;
 }
 
 .container {

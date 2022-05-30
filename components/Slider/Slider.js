@@ -3,18 +3,22 @@ import { getImg, getAudio, getName, getSpecies, getDescription} from '../../lib/
 import blankAudio from '../../public/audio/blank.mp3';
 import styles from './Slider.module.css';
 import Image from 'next/image';
-import { StyleSheet, useState } from 'react';
+import React, { StyleSheet, useState, useRef, useMemo } from 'react';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { StackedCarousel } from 'react-stacked-carousel';
 import 'react-stacked-carousel/dist/index.css';
 
-const Slider = ({ birdsData, questionId }) => {
-
+const Slider = ({ birdsData, questionId, audioId }) => {
+  // const player = useRef();
+  const players = useMemo(() => Array(6).fill(0).map(i=> React.createRef()), []);
   const [card, setCard] = useState(null);
   const onCardChange = (event) => {
-    console.log('Card', event);
-  };
+    players.forEach(player => {
+      player.current.audio.current.pause();
+      player.current.audio.current.currentTime = 0;
+    });
+  }; 
 
   const levelsArr = Object.values(levels);
   const cardsId = [1, 2, 3, 4, 5, 6];
@@ -33,21 +37,24 @@ const Slider = ({ birdsData, questionId }) => {
             {getSpecies(birdsData, questionId, cardId)}
           </p>
         </div>
-        <Image
-          src={getImg(birdsData, questionId, cardId)}
-          width={500}
-          height={280}
-          alt="bird"
-          className={styles.image}
-          layout="fixed"
-          priority
-        />
+        <div className={styles.imageContainer}>
+          <Image
+            src={getImg(birdsData, questionId, cardId)}
+            width={500}
+            height={280}
+            alt="bird"
+            className={styles.image}
+            layout="fill"
+            priority
+          />
+        </div>
         <p className={styles.description}>
           {getDescription(birdsData, questionId, cardId)}
         </p>
         <AudioPlayer
-          src={getAudio(birdsData, questionId, cardId)}
+          src={getAudio(birdsData, audioId, cardId)}
           className={styles.audio}
+          ref={players[index]}
           autoPlayAfterSrcChange={false}
           showJumpControls={false}
           customControlsSection={[

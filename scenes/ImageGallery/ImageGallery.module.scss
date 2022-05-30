@@ -21,7 +21,7 @@
   margin-bottom: 40px;
 }
 
-.levels {
+.pagination {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -32,23 +32,22 @@
   margin-left: 10px;
 }
 
-.card {
-  position: relative;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.levelTitle {
-  position: absolute;
+.pageItem {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  left: 0;
-  right: 0;
-  bottom: 4px;
-  margin: 0;
+  width: 130px;
+  height: 88px;
   padding: 0;
-  z-index: 2;
+  border-radius: 5px;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center center;
+}
+
+.pageLink {
+  width: 100%;
+  margin: 0;
   font-weight: 300;
   font-size: 16px;
   line-height: 32px;
@@ -56,16 +55,75 @@
   border-radius: 0 0 5px 5px ;
 }
 
-.image {
-  object-fit: cover;
-  object-position: bottom center;
-  border: 1px solid $border-color;
-  border-radius: 5px;
-}
-
 .sliderContainer {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+@media (max-width: 970px) {  
+  .sliderContainer {
+    flex-direction: column;
+  }
+  .pagination {
+    width: 100%;
+    flex-direction: row;
+    height: auto;
+    margin-left: 0;
+    margin-bottom: 25px;
+    border-bottom: 1px solid transparent;
+  }
+}
+
+@media (max-width: 970px) {  
+  .sliderContainer {
+    flex-direction: column;
+  }
+  .pagination {
+    width: 100%;
+    flex-direction: row;
+    height: auto;
+    margin-left: 0;
+    margin-bottom: 25px;
+    border-bottom: 1px solid transparent;
+  }
+}
+
+@media (max-width: 890px) {  
+  .pagination {
+    border-radius: 5px; 
+    overflow: hidden;
+  }
+  .pageItem {
+    flex: auto;
+    width: auto;
+    height: auto;
+    background-image: none;
+    text-align: center;
+  }  
+  .pageLink {
+    display: block;
+    padding: 8px 12px;
+    color: $white;
+    background-color: $green-color;
+    border-color: $dark-green-color;
+    &:hover {
+      color: $white;
+      text-decoration: none;
+      background-color: $medium-green-color;
+    }
+  }  
+  .pageLinkActive {
+    display: block;
+    padding: 8px 12px;
+    color: $white;
+    background-color: $medium-green-color;
+    border-color: $dark-green-color;
+    &:hover {
+      color: $white;
+      text-decoration: none;
+      background-color: $light-green-color;
+    }
+  }
 }
 

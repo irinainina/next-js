@@ -31,7 +31,7 @@ const Nav = ({ score, questionId }) => {
     );
   });
 
-  return <ul className={styles.pagination}>{links}</ul>;
+  return <ul className={styles.pagination}>{links}</ul>; 
 };
 
 Nav.propTypes = {
