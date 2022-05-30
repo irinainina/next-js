@@ -149,7 +149,7 @@
 @media (max-width: 650px) {
   .container {
     width: calc(100vw - 100px);
-    height: 450px;
+    height: 540px;
   }
   .imageContainer {
     width: 100%;
@@ -165,7 +165,13 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 500px) {
+  .container {
+    height: 450px;
+  }
+}
+
+@media (max-width: 450px) {
   .container {
     height: 400px;
   }
