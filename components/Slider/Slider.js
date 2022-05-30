@@ -1,22 +1,28 @@
 import levels from '../../constants/levels';
-import { getImg, getAudio, getName, getSpecies, getDescription} from '../../lib/getMedia';
+import { getImg, getAudio, getValue } from '../../lib/getData';
 import styles from './Slider.module.scss';
 import Image from 'next/image';
 import React, { StyleSheet, useState, useRef, useMemo } from 'react';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { StackedCarousel } from 'react-stacked-carousel';
-import 'react-stacked-carousel/dist/index.css'; 
+import 'react-stacked-carousel/dist/index.css';
 
 const Slider = ({ birdsData, questionId, audioId }) => {
-  const players = useMemo(() => Array(6).fill(0).map(i=> React.createRef()), []);
+  const players = useMemo(
+    () =>
+      Array(6)
+        .fill(0)
+        .map((i) => React.createRef()),
+    []
+  );
   const [card, setCard] = useState(null);
   const onCardChange = (event) => {
-    players.forEach(player => {
+    players.forEach((player) => {
       player.current.audio.current.pause();
       player.current.audio.current.currentTime = 0;
     });
-  }; 
+  };
 
   const levelsArr = Object.values(levels);
   const cardsId = [1, 2, 3, 4, 5, 6];
@@ -28,11 +34,11 @@ const Slider = ({ birdsData, questionId, audioId }) => {
         <div className={styles.birdInfo}>
           <div className={styles.cardNum}>{`${cardId}.`}</div>
           <h2 className={styles.birdName}>
-            {getName(birdsData, questionId, cardId)}
+            {getValue(birdsData, questionId, cardId, 'name')}
           </h2>
           <p className={styles.hyphen}>—</p>
           <p className={styles.species}>
-            {getSpecies(birdsData, questionId, cardId)}
+            {getValue(birdsData, questionId, cardId, 'species')}
           </p>
         </div>
         <div className={styles.imageContainer}>
@@ -47,7 +53,7 @@ const Slider = ({ birdsData, questionId, audioId }) => {
           />
         </div>
         <p className={styles.description}>
-          {getDescription(birdsData, questionId, cardId)}
+          {getValue(birdsData, questionId, cardId, 'description')}
         </p>
         <AudioPlayer
           src={getAudio(birdsData, audioId, cardId)}

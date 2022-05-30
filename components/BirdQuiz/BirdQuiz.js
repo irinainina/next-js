@@ -22,7 +22,6 @@ const BirdQuiz = ({ birdsData, random, win }) => {
   const player = useRef();
   const pauseAudio = () => {
       player.current.audio.current.pause();
-      player.current.audio.current.currentTime = 0;
   }
 
   return (

@@ -1,6 +1,6 @@
 import Slider from '../../components/Slider/Slider';
 import levels from '../../constants/levels';
-import { getImg } from '../../lib/getMedia';
+import { getImg } from '../../lib/getData';
 import styles from './ImageGallery.module.scss';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -25,12 +25,18 @@ const ImageGallery = ({ birdsData }) => {
       <div
         className={styles.pageItem}
         key={index}
-        style={{ 
-          backgroundImage: `url(${getImg(birdsData, index + 1, 1)})` 
+        style={{
+          backgroundImage: `url(${getImg(birdsData, index + 1, 1)})`,
         }}
         onClick={() => getQuestionId(index)}
       >
-        <h2 className={styles.pageLink}>{item}</h2>
+        <h2
+          className={
+            index + 1 == questionId ? styles.pageLinkActive : styles.pageLink
+          }
+        >
+          {item}
+        </h2>
       </div>
     );
   });
@@ -42,9 +48,11 @@ const ImageGallery = ({ birdsData }) => {
         <hr className={styles.hr} />
         <div className={styles.sliderContainer}>
           <div className={styles.pagination}>{elements}</div>
-          <Slider birdsData={birdsData} 
-          questionId={questionId}
-          audioId={audioId}/>
+          <Slider
+            birdsData={birdsData}
+            questionId={questionId}
+            audioId={audioId}
+          />
         </div>
       </div>
     </>

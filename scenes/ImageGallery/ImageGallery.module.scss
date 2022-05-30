@@ -32,10 +32,7 @@
   margin-left: 10px;
 }
 
-.pageItem {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+.pageItem {  
   width: 130px;
   height: 88px;
   padding: 0;
@@ -46,13 +43,32 @@
 }
 
 .pageLink {
-  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 130px;
+  height: 88px;
   margin: 0;
   font-weight: 300;
   font-size: 16px;
   line-height: 32px;
-  background-color: $body-color;
-  border-radius: 0 0 5px 5px ;
+  border-radius: 5px;
+  background-image: linear-gradient(to top, $body-color 32px, transparent 32px);  
+}
+
+.pageLinkActive {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 130px;
+  height: 88px;
+  margin: 0;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 32px;
+  background-image: linear-gradient(to top, $body-color 32px, transparent 32px);
+  border-radius: 5px;
+  box-shadow: 0 2px 20px rgba(0,0,0,.25),inset 0 1px 0px rgba(255,255,255,.6), 0 1px 1px rgba(0,0,0,.1),inset 0 0 17px rgba(0,0,0,.1), inset 0 -1px 0px rgba(255,255,255,.5), 0 -1px 1px rgba(0,0,0,.1),inset 0 0 17px rgba(0,0,0,.1);
 }
 
 .sliderContainer {
