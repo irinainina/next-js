@@ -1,5 +1,5 @@
 import imageSize from '../../constants/imageSize';
-import winAudio from '../../public/audio/win.mp3';
+import { useRef } from 'react';
 import styles from './BirdQuiz.module.scss';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
@@ -19,8 +19,14 @@ const BirdQuiz = ({ birdsData, random, win }) => {
     .replace(/-mp3/, '');
   const audioSrc = `https://cdn.sanity.io/files/drzbiexu/production/${audioKey}.mp3`;
 
+  const player = useRef();
+  const pauseAudio = () => {
+      player.current.audio.current.pause();
+      player.current.audio.current.currentTime = 0;
+  }
+
   return (
-    <> 
+    <>
       <div className={styles.birdQuizContainer}>
         <Image
           src={win ? imgSrc : '/img/bird.jpg'}
@@ -40,7 +46,9 @@ const BirdQuiz = ({ birdsData, random, win }) => {
             </li>
             <li className={styles.listItem}>
               <AudioPlayer
-                src={win ? winAudio : audioSrc}
+                src={audioSrc}
+                ref={player}
+                onPlay={win ? pauseAudio() : ''}
                 className={styles.birdQuizAudio}
                 autoplay={false}
                 showJumpControls={false}
@@ -61,7 +69,7 @@ const BirdQuiz = ({ birdsData, random, win }) => {
 BirdQuiz.propTypes = {
   birdsData: PropTypes.array,
   random: PropTypes.number,
-  win: PropTypes.bool
+  win: PropTypes.bool,
 };
 
 export default BirdQuiz;

@@ -67,6 +67,7 @@ const Card = ({ birdsData }) => {
           <BirdsList
             birdsData={birdsData}
             random={random}
+            win={win}
             getCardId={(cardNumber) => getCardId(cardNumber)}
           />
           <BirdInfo birdsData={birdsData} cardId={cardId} />

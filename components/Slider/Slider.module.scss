@@ -1,3 +1,5 @@
+@import '../../styles/variables/all.scss';
+
 .main {
   display: flex;
   justify-content: center;
@@ -72,6 +74,12 @@
   outline: 0;  
   border: 0;
   cursor: pointer;
+  &:hover {
+    color: #ccc;
+  }
+  &:active {
+    color: #666;
+  }
 }
 
 .level {

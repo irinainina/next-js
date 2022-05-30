@@ -1,16 +1,14 @@
 import levels from '../../constants/levels';
 import { getImg, getAudio, getName, getSpecies, getDescription} from '../../lib/getMedia';
-import blankAudio from '../../public/audio/blank.mp3';
-import styles from './Slider.module.css';
+import styles from './Slider.module.scss';
 import Image from 'next/image';
 import React, { StyleSheet, useState, useRef, useMemo } from 'react';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { StackedCarousel } from 'react-stacked-carousel';
-import 'react-stacked-carousel/dist/index.css';
+import 'react-stacked-carousel/dist/index.css'; 
 
 const Slider = ({ birdsData, questionId, audioId }) => {
-  // const player = useRef();
   const players = useMemo(() => Array(6).fill(0).map(i=> React.createRef()), []);
   const [card, setCard] = useState(null);
   const onCardChange = (event) => {

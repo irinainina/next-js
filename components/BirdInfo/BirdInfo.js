@@ -19,6 +19,7 @@ const BirdInfo = ({ birdsData, cardId }) => {
       .replace(/file-/, '')
       .replace(/-mp3/, '');
     const audioSrc = `https://cdn.sanity.io/files/drzbiexu/production/${audioKey}.mp3`;
+    
     return (
       <div className={styles.birdsInfoContainer}>
         <div className={styles.birdDetails}>
