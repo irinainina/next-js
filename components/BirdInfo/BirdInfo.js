@@ -3,7 +3,7 @@ import styles from './BirdInfo.module.scss';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
+import 'react-h5-audio-player/lib/styles.css'; 
 
 const BirdInfo = ({ birdsData, cardId }) => {
   

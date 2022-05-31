@@ -37,7 +37,7 @@ const BirdsList = ({ birdsData, getCardId, random, win }) => {
           </li>
         ))}
       </ul>
-      <audio src={blankAudio} ref={player}></audio>
+      <audio src={blankAudio} ref={player}></audio> 
     </>
   );
 };

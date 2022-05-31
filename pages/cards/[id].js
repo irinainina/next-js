@@ -52,7 +52,6 @@ const Card = ({ birdsData }) => {
     setWin(false);
     setCardId(0);
     setAttempts(0);
-    setRandom(getRandomQuestion());
   };
 
   return (
