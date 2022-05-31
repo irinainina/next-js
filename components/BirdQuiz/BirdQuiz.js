@@ -1,3 +1,4 @@
+import { getImg, getAudio, getValue } from '../../lib/getData';
 import imageSize from '../../constants/imageSize';
 import { useRef } from 'react';
 import styles from './BirdQuiz.module.scss';
@@ -6,18 +7,10 @@ import PropTypes from 'prop-types';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
-const BirdQuiz = ({ birdsData, random, win }) => {
-  const birdData = birdsData.filter((el) => el.cardNumber === random)[0];
-
-  const imgKey = birdData.image.asset._ref
-    .replace(/image-/, '')
-    .replace(/-jpg/, '');
-  const imgSrc = `https://cdn.sanity.io/images/drzbiexu/production/${imgKey}.jpg`;
-
-  const audioKey = birdData.audio.asset._ref
-    .replace(/file-/, '')
-    .replace(/-mp3/, '');
-  const audioSrc = `https://cdn.sanity.io/files/drzbiexu/production/${audioKey}.mp3`;
+const BirdQuiz = ({ birdsData, questionNum, random, win }) => {
+  const imgSrc = getImg(birdsData, questionNum, random);
+  const audioSrc = getAudio(birdsData, questionNum, random);
+  const birdName = getValue(birdsData, questionNum, random, 'birdName');
 
   const player = useRef();
   const pauseAudio = () => {
@@ -40,7 +33,7 @@ const BirdQuiz = ({ birdsData, random, win }) => {
           <ul className={styles.list}>
             <li className={styles.listItem}>
               <h3 className={styles.birdName}>
-                {win ? birdData.birdName : '******'}
+                {win ? birdName : '******'}
               </h3>
             </li>
             <li className={styles.listItem}>
@@ -67,6 +60,7 @@ const BirdQuiz = ({ birdsData, random, win }) => {
 
 BirdQuiz.propTypes = {
   birdsData: PropTypes.array,
+  questionNum: PropTypes.number,
   random: PropTypes.number,
   win: PropTypes.bool,
 };

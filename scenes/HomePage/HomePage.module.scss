@@ -1,7 +1,7 @@
 @import '../../styles/variables/all.scss';
 
 .container {
-  position: relative;
+  position: relative; 
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,6 +9,7 @@
   max-width: 1140px;
   min-height: calc(100vh - 50px);
   padding: 0 15px;
+  overflow-x: hidden;
   margin: 0 auto;
 }
 

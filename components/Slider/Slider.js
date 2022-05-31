@@ -44,8 +44,6 @@ const Slider = ({ birdsData, questionId, audioId }) => {
         <div className={styles.imageContainer}>
           <Image
             src={getImg(birdsData, questionId, cardId)}
-            width={500}
-            height={280}
             alt="bird"
             className={styles.image}
             layout="fill"

@@ -20,11 +20,11 @@ export const getServerSideProps = async (context) => {
     return { notFound: true };
   }
   return {
-    props: { birdsData: data.result.filter((el) => el.questionNumber === +id) },
+    props: { birdsData: data.result, questionNum: +id },
   };
 };
 
-const Card = ({ birdsData }) => {
+const Card = ({ birdsData, questionNum }) => {
   const getRandomQuestion = () => Math.floor(Math.random() * 6 + 1);
 
   const [random, setRandom] = useState(1);
@@ -61,15 +61,25 @@ const Card = ({ birdsData }) => {
       </Head>
       <Questions score={score} questionId={questionId} />
       <div className={styles.container}>
-        <BirdQuiz birdsData={birdsData} random={random} win={win} />
+        <BirdQuiz 
+          birdsData={birdsData}
+          questionNum={questionNum}
+          random={random} 
+          win={win}
+        />
         <div className={styles.wrap}>
           <BirdsList
             birdsData={birdsData}
+            questionNum={questionNum}
             random={random}
             win={win}
             getCardId={(cardNumber) => getCardId(cardNumber)}
           />
-          <BirdInfo birdsData={birdsData} cardId={cardId} />
+          <BirdInfo 
+            birdsData={birdsData}
+            questionNum={questionNum}
+            cardId={cardId} 
+          />
         </div>
         <Link href={questionId < 7 ? `/cards/${questionId}` : `/game-over?${score}`}>
           <a
@@ -86,6 +96,7 @@ const Card = ({ birdsData }) => {
 
 Card.propTypes = {
   birdsData: PropTypes.array,
+  questionNum: PropTypes.number
 };
 
 export default Card;

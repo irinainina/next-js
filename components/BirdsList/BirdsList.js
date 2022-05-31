@@ -1,3 +1,4 @@
+import { getImg, getAudio, getValue } from '../../lib/getData';
 import styles from './BirdsList.module.scss';
 import PropTypes from 'prop-types';
 import { useState, useRef } from 'react';
@@ -5,7 +6,9 @@ import blankAudio from '../../public/audio/blank.mp3';
 import winAudio from '../../public/audio/win.mp3';
 import errorAudio from '../../public/audio/error.mp3';
 
-const BirdsList = ({ birdsData, getCardId, random, win }) => {
+const BirdsList = ({ birdsData, questionNum, getCardId, random, win }) => {
+  const birdData = birdsData.filter(el => el.questionNumber == questionNum);
+
   const player = useRef();
   const playAudio = (cardNumber) => {
     if(win) return;
@@ -21,7 +24,7 @@ const BirdsList = ({ birdsData, getCardId, random, win }) => {
   return (
     <>
       <ul className={styles.birdsList}>
-        {birdsData.map(({ _id, birdName, cardNumber }) => (
+        {birdData.map(({ _id, birdName, cardNumber }) => (
           <li
             className={styles.listItem}
             key={_id}
@@ -44,6 +47,7 @@ const BirdsList = ({ birdsData, getCardId, random, win }) => {
 
 BirdsList.propTypes = {
   birdsData: PropTypes.array,
+  questionNum: PropTypes.number,
   random: PropTypes.number,
   getCardId: PropTypes.func,
 };

@@ -1,3 +1,4 @@
+import { getImg, getAudio, getValue } from '../../lib/getData';
 import imageSize from '../../constants/imageSize';
 import styles from './BirdInfo.module.scss';
 import Image from 'next/image';
@@ -5,21 +6,15 @@ import PropTypes from 'prop-types';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css'; 
 
-const BirdInfo = ({ birdsData, cardId }) => {
+const BirdInfo = ({ birdsData, questionNum, cardId }) => {
   
   if (cardId) {
-    const birdData = birdsData.filter((el) => el.cardNumber === cardId)[0];
+    const imgSrc = getImg(birdsData, questionNum, cardId);
+    const audioSrc = getAudio(birdsData, questionNum, cardId);
+    const birdName = getValue(birdsData, questionNum, cardId, 'birdName');
+    const species = getValue(birdsData, questionNum, cardId, 'species');
+    const description = getValue(birdsData, questionNum, cardId, 'description');
 
-    const imgKey = birdData.image.asset._ref
-      .replace(/image-/, '')
-      .replace(/-jpg/, '');
-    const imgSrc = `https://cdn.sanity.io/images/drzbiexu/production/${imgKey}.jpg`;
-
-    const audioKey = birdData.audio.asset._ref
-      .replace(/file-/, '')
-      .replace(/-mp3/, '');
-    const audioSrc = `https://cdn.sanity.io/files/drzbiexu/production/${audioKey}.mp3`;
-    
     return (
       <div className={styles.birdsInfoContainer}>
         <div className={styles.birdDetails}>
@@ -35,10 +30,10 @@ const BirdInfo = ({ birdsData, cardId }) => {
             />
             <ul className={styles.listGroup}>
               <li className={styles.listGroupItem}>
-                <h4 className={styles.birdName}>{birdData.birdName}</h4>
+                <h4 className={styles.birdName}>{birdName}</h4>
               </li>
               <li className={styles.listGroupItem}>
-                <p className={styles.birdSpecies}>{birdData.species}</p>
+                <p className={styles.birdSpecies}>{species}</p>
               </li>
               <li className={styles.listGroupItem}>
                 <AudioPlayer
@@ -53,7 +48,7 @@ const BirdInfo = ({ birdsData, cardId }) => {
               </li>
             </ul>
           </div>
-          <span className={styles.birdDescription}>{birdData.description}</span>
+          <span className={styles.birdDescription}>{description}</span>
         </div>
       </div>
     );
@@ -73,6 +68,7 @@ const BirdInfo = ({ birdsData, cardId }) => {
 
 BirdInfo.propTypes = {
   birdsData: PropTypes.array,
+  questionNum: PropTypes.number,
   cardId: PropTypes.number
 };
 
