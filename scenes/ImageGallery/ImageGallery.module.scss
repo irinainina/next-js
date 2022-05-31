@@ -114,7 +114,6 @@
     flex: auto;
     width: auto;
     height: auto;
-    background-image: none;
     text-align: center;
   }  
   .pageLink {
@@ -123,6 +122,8 @@
     color: $white;
     background: $green-color;
     border-color: $dark-green-color;
+    border-radius: 0;    
+    background-image: none;
     &:hover {
       color: $white;
       text-decoration: none;
@@ -135,6 +136,9 @@
     color: $white;
     background: $medium-green-color;
     border-color: $dark-green-color;
+    box-shadow: none;
+    border-radius: 0;
+    background-image: none;
     &:hover {
       color: $white;
       text-decoration: none;
@@ -143,3 +147,8 @@
   }
 }
 
+@media (max-width: 470px) {
+  .title {
+    font-size: 32px;    
+  }
+}

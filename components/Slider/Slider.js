@@ -34,7 +34,7 @@ const Slider = ({ birdsData, questionId, audioId }) => {
         <div className={styles.birdInfo}>
           <div className={styles.cardNum}>{`${cardId}.`}</div>
           <h2 className={styles.birdName}>
-            {getValue(birdsData, questionId, cardId, 'name')}
+            {getValue(birdsData, questionId, cardId, 'birdName')}
           </h2>
           <p className={styles.hyphen}>—</p>
           <p className={styles.species}>

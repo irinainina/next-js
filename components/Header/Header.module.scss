@@ -31,7 +31,7 @@
 }
 
 .logo:hover {
-  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+  filter: invert(6%) sepia(68%) saturate(700%) hue-rotate(311deg) brightness(101%) contrast(103%);
 }
 
 .nav {
@@ -53,12 +53,41 @@
   transition: .3s;
 }
 
-.link:hover {
-  color: #bdae82;
+.lastLink {
+  position: relative;
+  display: block;
+  font-size: 18px;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px;  
+  padding-right: 0px;
+  transition: .3s;
 }
 
-.lastLink {
+.linkActive {
+  position: relative;
+  display: block;
+  font-size: 18px;
+  color: #FFDA93;
+  text-decoration: none;
+  padding: 20px;
+  transition: .3s;
+}
+
+.lastLinkActive {
+  position: relative;
+  display: block;
+  font-size: 18px;
+  color: #FFDA93;
+  text-decoration: none;
+  padding: 20px;
   padding-right: 0px;
+  transition: .3s;
+}
+
+.link:hover,
+.lastLink:hover {
+  color: #ffe5b3;
 }
 
 @media (max-width: 470px) {  

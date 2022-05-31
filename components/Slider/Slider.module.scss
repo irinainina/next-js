@@ -131,33 +131,21 @@
   }
   .imageContainer {
     width: 100%;
-    height: 240px;
-  }
-}
-
-@media (max-width: 540px) {  
-  .container {
-    width: calc(100vw - 100px);
-    height: 650px;
-  }
-  .imageContainer {
-    width: 100%;
-    height: 200px;
+    height: 280px;
   }
 }
 
 @media (max-width: 650px) {
   .container {
     width: calc(100vw - 100px);
-    height: 540px;
+    height: 580px;
   }
   .imageContainer {
     width: 100%;
     height: auto;
   }
   .description,
-  .hyphen,
-  .audio {
+  .hyphen {
     display: none;
   }
   .birdInfo {
@@ -165,14 +153,22 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 550px) {
   .container {
-    height: 450px;
+    height: 510px;
   }
 }
 
 @media (max-width: 450px) {
   .container {
-    height: 400px;
+    width: calc(100vw - 70px);
+    height: 480px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    width: calc(100vw - 50px);
+    height: 420px;
   }
 }
