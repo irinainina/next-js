@@ -1,19 +1,24 @@
 import Form from '../../components/Form/Form';
-import styles from './GameResult.module.scss';
-import PropTypes from 'prop-types';
 import winImg from '../../public/img/win.jpg';
+import LangContext from '../../translation/LangContext';
+import styles from './GameResult.module.scss';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
+import { useContext } from 'react';
 
-const GameResult = ({score}) => {
+const GameResult = ({ score }) => {
+  const value = useContext(LangContext);
+  const { congratulations, resultPart1, resultPart2 } = value.state.languages;
+
   return (
     <>
       <div className={styles.container}>
-        <h1 className={styles.leadText}>Поздравляем!</h1>
+        <h1 className={styles.leadText}>{congratulations}</h1>
         <p className={styles.resultText}>
-          Вы прошли викторину и набрали {score} из 30 возможных баллов
+          {resultPart1} {score} {resultPart2}
         </p>
         <hr className={styles.hr} />
         <Image
@@ -31,7 +36,7 @@ const GameResult = ({score}) => {
 };
 
 GameResult.propTypes = {
-  score: PropTypes.string
+  score: PropTypes.string,
 };
 
 export default GameResult;

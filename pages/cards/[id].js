@@ -1,14 +1,16 @@
 import BirdInfo from '../../components/BirdInfo/BirdInfo';
 import BirdQuiz from '../../components/BirdQuiz/BirdQuiz';
 import BirdsList from '../../components/BirdsList/BirdsList';
-import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import Header from '../../components/Header/Header';
 import Questions from '../../components/Questions/Questions';
+import LangContext from '../../translation/LangContext';
 import styles from './card.module.scss';
 import Head from 'next/head';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
+import { useContext } from 'react';
 
 export const getServerSideProps = async (context) => {
   const { id } = context.params;
@@ -25,6 +27,10 @@ export const getServerSideProps = async (context) => {
 };
 
 const Card = ({ birdsData, questionNum }) => {
+  const value = useContext(LangContext);
+  const { nextLevel } = value.state.languages;
+  const { lang } = value.state;
+
   const getRandomQuestion = () => Math.floor(Math.random() * 6 + 1);
 
   const [random, setRandom] = useState(1);
@@ -61,11 +67,12 @@ const Card = ({ birdsData, questionNum }) => {
       </Head>
       <Questions score={score} questionId={questionId} />
       <div className={styles.container}>
-        <BirdQuiz 
+        <BirdQuiz
           birdsData={birdsData}
           questionNum={questionNum}
-          random={random} 
+          random={random}
           win={win}
+          lang={lang}
         />
         <div className={styles.wrap}>
           <BirdsList
@@ -73,20 +80,24 @@ const Card = ({ birdsData, questionNum }) => {
             questionNum={questionNum}
             random={random}
             win={win}
+            lang={lang}
             getCardId={(cardNumber) => getCardId(cardNumber)}
           />
-          <BirdInfo 
+          <BirdInfo
             birdsData={birdsData}
             questionNum={questionNum}
-            cardId={cardId} 
+            cardId={cardId}
+            lang={lang}
           />
         </div>
-        <Link href={questionId < 7 ? `/cards/${questionId}` : `/game-over?${score}`}>
+        <Link
+          href={questionId < 7 ? `/cards/${questionId}` : `/game-over?${score}`}
+        >
           <a
             className={win ? styles.btnActive : styles.btn}
             onClick={() => getNextLevel()}
           >
-            Next Level
+            {nextLevel}
           </a>
         </Link>
       </div>
@@ -96,7 +107,7 @@ const Card = ({ birdsData, questionNum }) => {
 
 Card.propTypes = {
   birdsData: PropTypes.array,
-  questionNum: PropTypes.number
+  questionNum: PropTypes.number,
 };
 
 export default Card;

@@ -8,7 +8,7 @@ import 'react-h5-audio-player/lib/styles.css';
 import { StackedCarousel } from 'react-stacked-carousel';
 import 'react-stacked-carousel/dist/index.css';
 
-const Slider = ({ birdsData, questionId, audioId }) => {
+const Slider = ({ birdsData, questionId, audioId, lang }) => {
   const players = useMemo(
     () =>
       Array(6)
@@ -24,7 +24,7 @@ const Slider = ({ birdsData, questionId, audioId }) => {
     });
   };
 
-  const levelsArr = Object.values(levels);
+  const levelsArr = Object.values(levels[lang]);
   const cardsId = [1, 2, 3, 4, 5, 6];
 
   const slides = cardsId.map((cardId, index) => {
@@ -34,7 +34,7 @@ const Slider = ({ birdsData, questionId, audioId }) => {
         <div className={styles.birdInfo}>
           <div className={styles.cardNum}>{`${cardId}.`}</div>
           <h2 className={styles.birdName}>
-            {getValue(birdsData, questionId, cardId, 'birdName')}
+            {getValue(birdsData, questionId, cardId, 'birdName', lang)}
           </h2>
           <p className={styles.hyphen}>—</p>
           <p className={styles.species}>
@@ -51,7 +51,7 @@ const Slider = ({ birdsData, questionId, audioId }) => {
           />
         </div>
         <p className={styles.description}>
-          {getValue(birdsData, questionId, cardId, 'description')}
+          {getValue(birdsData, questionId, cardId, 'description', lang)}
         </p>
         <AudioPlayer
           src={getAudio(birdsData, audioId, cardId)}

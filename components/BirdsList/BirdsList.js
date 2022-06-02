@@ -1,46 +1,49 @@
 import { getImg, getAudio, getValue } from '../../lib/getData';
+import blankAudio from '../../public/audio/blank.mp3';
+import errorAudio from '../../public/audio/error.mp3';
+import winAudio from '../../public/audio/win.mp3';
 import styles from './BirdsList.module.scss';
 import PropTypes from 'prop-types';
 import { useState, useRef } from 'react';
-import blankAudio from '../../public/audio/blank.mp3';
-import winAudio from '../../public/audio/win.mp3';
-import errorAudio from '../../public/audio/error.mp3';
 
-const BirdsList = ({ birdsData, questionNum, getCardId, random, win }) => {
-  const birdData = birdsData.filter(el => el.questionNumber == questionNum);
+const BirdsList = ({birdsData, questionNum, getCardId, random, win, lang}) => {
+
+  const birdData = birdsData.filter((el) => el.questionNumber == questionNum);
 
   const player = useRef();
   const playAudio = (cardNumber) => {
-    if(win) return;
-    if(cardNumber === random) {
+    if (win) return;
+    if (cardNumber === random) {
       player.current.src = winAudio;
       player.current.play();
     } else {
       player.current.src = errorAudio;
       player.current.play();
-    } 
-  }
+    }
+  };
 
   return (
     <>
       <ul className={styles.birdsList}>
-        {birdData.map(({ _id, birdName, cardNumber }) => (
+        {birdData.map(({ _id, birdNameEN, birdNameRU, birdNameUA, cardNumber }) => (
           <li
             className={styles.listItem}
             key={_id}
             onClick={() => {
               playAudio(cardNumber);
               getCardId(cardNumber);
-              if(win) return;
-              event.target.className =
-                cardNumber === random ? styles.winItem : styles.errorItem;
+              event.target.className = win
+                ? styles.activeItem
+                : cardNumber === random
+                ? styles.winItem
+                : styles.errorItem;
             }}
           >
-            {birdName}
+            {lang === 'en' ? birdNameEN : lang === 'ru' ? birdNameRU : birdNameUA}
           </li>
         ))}
       </ul>
-      <audio src={blankAudio} ref={player}></audio> 
+      <audio src={blankAudio} ref={player}></audio>
     </>
   );
 };
@@ -50,6 +53,7 @@ BirdsList.propTypes = {
   questionNum: PropTypes.number,
   random: PropTypes.number,
   getCardId: PropTypes.func,
+  lang: PropTypes.string,
 };
 
 export default BirdsList;

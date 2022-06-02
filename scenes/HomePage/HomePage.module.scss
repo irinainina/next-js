@@ -65,10 +65,11 @@
 
 .video {
   position: absolute;
-  right: -100px;
+  right: -40px;
   transform: rotateY(180deg);
   width: 720px;
-  height: 792px; 
+  height: 792px;
+  max-height: calc(100vh - 60px);
 }
 
 @media (max-width: 570px) {

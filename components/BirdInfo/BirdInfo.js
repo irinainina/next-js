@@ -1,19 +1,23 @@
-import { getImg, getAudio, getValue } from '../../lib/getData';
 import imageSize from '../../constants/imageSize';
+import { getImg, getAudio, getValue } from '../../lib/getData';
 import styles from './BirdInfo.module.scss';
 import Image from 'next/image';
 import PropTypes from 'prop-types';
 import AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css'; 
+import 'react-h5-audio-player/lib/styles.css';
+import LangContext from '../../translation/LangContext';
+import { useContext } from 'react';
 
-const BirdInfo = ({ birdsData, questionNum, cardId }) => {
-  
+const BirdInfo = ({ birdsData, questionNum, cardId, lang }) => {
+  const value = useContext(LangContext);
+  const { listenPlayer, selectBird } = value.state.languages;
+
   if (cardId) {
     const imgSrc = getImg(birdsData, questionNum, cardId);
     const audioSrc = getAudio(birdsData, questionNum, cardId);
-    const birdName = getValue(birdsData, questionNum, cardId, 'birdName');
-    const species = getValue(birdsData, questionNum, cardId, 'species');
-    const description = getValue(birdsData, questionNum, cardId, 'description');
+    const birdName = getValue(birdsData, questionNum, cardId, 'birdName', lang);
+    const species = getValue(birdsData, questionNum, cardId, 'species', lang);
+    const description = getValue(birdsData, questionNum, cardId, 'description', lang);
 
     return (
       <div className={styles.birdsInfoContainer}>
@@ -57,8 +61,8 @@ const BirdInfo = ({ birdsData, questionNum, cardId }) => {
       <div className={styles.birdsInfoContainer}>
         <div className={styles.birdDetails}>
           <p className={styles.instruction}>
-            <span>Послушайте плеер.</span>
-            <span>Выберите птицу из списка</span>
+            <span>{listenPlayer}</span>
+            <span>{selectBird}</span>
           </p>
         </div>
       </div>
@@ -69,7 +73,8 @@ const BirdInfo = ({ birdsData, questionNum, cardId }) => {
 BirdInfo.propTypes = {
   birdsData: PropTypes.array,
   questionNum: PropTypes.number,
-  cardId: PropTypes.number
+  cardId: PropTypes.number,
+  lang: PropTypes.string,
 };
 
 export default BirdInfo;

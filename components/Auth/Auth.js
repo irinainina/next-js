@@ -1,8 +1,14 @@
+import LangContext from '../../translation/LangContext';
+import LangSwitch from '../LangSwitch/LangSwitch';
 import styles from './Auth.module.scss';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { useContext } from 'react';
 
 const Auth = () => {
+  const value = useContext(LangContext);
+  const { signIn, signOut, signedAs, notSigned } = value.state.languages;
+
   const { data: session, status } = useSession();
   const loading = status === 'loading';
 
@@ -10,11 +16,15 @@ const Auth = () => {
     <div className={styles.container}>
       <div className={styles.innerContainer}>
         <div className={styles.signedInStatus}>
-          <p className={`${!session && loading ? styles.loading : styles.loaded}`}>
+          <p
+            className={`${
+              !session && loading ? styles.loading : styles.loaded
+            }`}
+          >
             {!session && (
               <>
                 <span className={styles.notSignedInText}>
-                <small>You are not signed in</small>
+                  <small>{notSigned}</small>
                 </span>
                 <a
                   href={`/api/auth/signin`}
@@ -24,7 +34,7 @@ const Auth = () => {
                     signIn();
                   }}
                 >
-                  Sign in
+                  {signIn}
                 </a>
               </>
             )}
@@ -37,7 +47,7 @@ const Auth = () => {
                   />
                 )}
                 <span className={styles.signedInText}>
-                  <small>Signed in as</small>
+                  <small>{signedAs}</small>
                   <br />
                   {session.user.email ?? session.user.name}
                 </span>
@@ -49,11 +59,14 @@ const Auth = () => {
                     signOut();
                   }}
                 >
-                  Sign out
+                  {signOut}
                 </a>
               </>
             )}
           </p>
+        </div>
+        <div className={styles.langSwitchContainer}>
+          <LangSwitch />
         </div>
       </div>
     </div>
