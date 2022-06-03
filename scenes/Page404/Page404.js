@@ -1,11 +1,11 @@
-import LangContext from '../../translation/LangContext';
+import { LangContext } from '../../translation/LangContext';
 import styles from './Page404.module.scss';
 import Image from 'next/image';
 import { useContext } from 'react';
 
 const Page404 = () => {
   const value = useContext(LangContext);
-  const { error } = value.state.languages;
+  const { error } = value.dictionary;
 
   return (
     <>

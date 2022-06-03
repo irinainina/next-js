@@ -1,4 +1,4 @@
-import LangContext from '../../translation/LangContext';
+import { LangContext } from '../../translation/LangContext';
 import Nav from '../Nav/Nav';
 import styles from './Questions.module.scss';
 import PropTypes from 'prop-types';
@@ -6,7 +6,7 @@ import { useContext } from 'react';
 
 const Questions = ({ score, questionId }) => {
   const value = useContext(LangContext);
-  const { scoreText } = value.state.languages;
+  const { scoreText } = value.dictionary;
 
   return (
     <div className={styles.container}>

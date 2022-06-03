@@ -4,7 +4,7 @@ import BirdsList from '../../components/BirdsList/BirdsList';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import Questions from '../../components/Questions/Questions';
-import LangContext from '../../translation/LangContext';
+import { LangContext } from '../../translation/LangContext';
 import styles from './card.module.scss';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -28,8 +28,8 @@ export const getServerSideProps = async (context) => {
 
 const Card = ({ birdsData, questionNum }) => {
   const value = useContext(LangContext);
-  const { nextLevel } = value.state.languages;
-  const { lang } = value.state;
+  const lang = value.lang;
+  const { nextLevel } = value.dictionary;
 
   const getRandomQuestion = () => Math.floor(Math.random() * 6 + 1);
 

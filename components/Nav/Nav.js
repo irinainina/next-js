@@ -1,5 +1,5 @@
 import levels from '../../constants/levels';
-import LangContext from '../../translation/LangContext';
+import { LangContext } from '../../translation/LangContext';
 import styles from './Nav.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -8,7 +8,7 @@ import { useContext } from 'react';
 
 const Nav = ({ score, questionId }) => {
   const value = useContext(LangContext);
-  const { lang } = value.state;
+  const lang = value.lang;
 
   const navigation = [
     { id: 1, title: levels[lang].introduction, path: '/cards/1' },

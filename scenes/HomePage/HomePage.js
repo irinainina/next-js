@@ -1,13 +1,13 @@
 import Auth from '../../components/Auth/Auth';
 import Footer from '../../components/Footer/Footer';
-import LangContext from '../../translation/LangContext';
+import { LangContext } from '../../translation/LangContext';
 import styles from './HomePage.module.scss';
 import Link from 'next/link';
 import { useContext } from 'react';
 
 const HomePage = () => {
   const value = useContext(LangContext);
-  const { quiz, quizTitle, game, gallery } = value.state.languages;
+  const { quiz, quizTitle, game, gallery } = value.dictionary;
 
   return (
     <>

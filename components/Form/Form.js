@@ -1,5 +1,5 @@
 import saveResult from '../../lib/mutations';
-import LangContext from '../../translation/LangContext';
+import { LangContext } from '../../translation/LangContext';
 import styles from './Form.module.scss';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -8,7 +8,7 @@ import { useState, useContext } from 'react';
 
 const Form = ({ score }) => {
   const value = useContext(LangContext);
-  const { name, saveResult } = value.state.languages;
+  const { name, saveResult } = value.dictionary;
 
   const { data: session } = useSession();
   const router = useRouter();

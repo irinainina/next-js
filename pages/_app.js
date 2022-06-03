@@ -1,26 +1,16 @@
 import Layout from '../components/Layout/Layout';
 import '../styles/globals.scss';
-import LangContext from '../translation/LangContext';
-import dictionary from '../translation/dictionary';
+import { LangProvider } from '../translation/LangContext';
 import { SessionProvider } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  const [lang, setLang] = useState('en');
-
-  const provider = {
-    state: {
-      languages: dictionary[lang],
-      lang: lang,
-    },
-    setLang: setLang, 
-  };
 
   return (
-    <LangContext.Provider value={provider}>
-      <SessionProvider session={pageProps.session}>
+    <SessionProvider session={pageProps.session}>
+      <LangProvider>
         {router.pathname !== '/' ? (
           <Layout>
             <Component {...pageProps} />
@@ -28,8 +18,8 @@ function MyApp({ Component, pageProps }) {
         ) : (
           <Component {...pageProps} />
         )}
-      </SessionProvider>
-    </LangContext.Provider>
+      </LangProvider>
+    </SessionProvider>
   );
 }
 

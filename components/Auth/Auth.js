@@ -1,5 +1,5 @@
-import LangContext from '../../translation/LangContext';
-import LangSwitch from '../LangSwitch/LangSwitch';
+import { LangContext } from '../../translation/LangContext';
+import LangSelector from '../LangSelector/LangSelector';
 import styles from './Auth.module.scss';
 import { signIn, signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 const Auth = () => {
   const value = useContext(LangContext);
-  const { signIn, signOut, signedAs, notSigned } = value.state.languages;
+  const { signInText, signOutText, signedAs, notSigned } = value.dictionary;
 
   const { data: session, status } = useSession();
   const loading = status === 'loading';
@@ -34,7 +34,7 @@ const Auth = () => {
                     signIn();
                   }}
                 >
-                  {signIn}
+                  {signInText}
                 </a>
               </>
             )}
@@ -59,15 +59,13 @@ const Auth = () => {
                     signOut();
                   }}
                 >
-                  {signOut}
+                  {signOutText}
                 </a>
               </>
             )}
           </p>
         </div>
-        <div className={styles.langSwitchContainer}>
-          <LangSwitch />
-        </div>
+        <LangSelector />
       </div>
     </div>
   );

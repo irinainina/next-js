@@ -1,6 +1,6 @@
 import Form from '../../components/Form/Form';
 import winImg from '../../public/img/win.jpg';
-import LangContext from '../../translation/LangContext';
+import { LangContext } from '../../translation/LangContext';
 import styles from './GameResult.module.scss';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -11,7 +11,7 @@ import { useContext } from 'react';
 
 const GameResult = ({ score }) => {
   const value = useContext(LangContext);
-  const { congratulations, resultPart1, resultPart2 } = value.state.languages;
+  const { congratulations, resultPart1, resultPart2 } = value.dictionary;
 
   return (
     <>

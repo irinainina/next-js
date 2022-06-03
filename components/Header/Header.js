@@ -1,5 +1,5 @@
-import LangContext from '../../translation/LangContext';
-import LangSwitch from '../LangSwitch/LangSwitch';
+import { LangContext } from '../../translation/LangContext';
+import LangSelector from '../LangSelector/LangSelector';
 import styles from './Header.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -7,7 +7,7 @@ import { useContext } from 'react';
 
 const Header = () => {
   const value = useContext(LangContext);
-  const { game, gallery, results } = value.state.languages;
+  const { game, gallery, results } = value.dictionary;
 
   const { asPath } = useRouter();
 
@@ -46,9 +46,7 @@ const Header = () => {
                 {results}
               </a>
             </Link>
-            <div className={styles.langSwitchContainer}>
-              <LangSwitch />
-            </div>
+            <LangSelector />
           </div>
         </nav>
       </div>

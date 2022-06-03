@@ -1,4 +1,4 @@
-import LangContext from '../../translation/LangContext';
+import { LangContext } from '../../translation/LangContext';
 import styles from './Scoreboard.module.scss';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
@@ -6,7 +6,7 @@ import { useContext } from 'react';
 
 const Scoreboard = ({ scores }) => {
   const value = useContext(LangContext);
-  const { scoreboard, tryMore } = value.state.languages;
+  const { scoreboard, tryMore } = value.dictionary;
 
   const transformDate = (date) =>
     date.split('T')[0].split('-').reverse().join('.');

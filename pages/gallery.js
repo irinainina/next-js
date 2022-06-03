@@ -1,6 +1,6 @@
 import ImageGallery from '../scenes/ImageGallery/ImageGallery';
+import { LangContext } from '../translation/LangContext';
 import Head from 'next/head';
-import LangContext from '../translation/LangContext';
 import { useContext } from 'react';
 
 export const getServerSideProps = async () => {
@@ -16,19 +16,16 @@ export const getServerSideProps = async () => {
   };
 };
 
-const GalleryPage = ({birdsData}) => {
+const GalleryPage = ({ birdsData }) => {
   const value = useContext(LangContext);
-  let { lang } = value.state;
+  const lang = value.lang;
 
   return (
     <>
       <Head>
         <title>gallery</title>
       </Head>
-      <ImageGallery 
-        birdsData={birdsData}
-        lang={lang}
-      />
+      <ImageGallery birdsData={birdsData} lang={lang} />
     </>
   );
 };

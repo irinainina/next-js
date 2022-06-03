@@ -1,7 +1,7 @@
 import Slider from '../../components/Slider/Slider';
 import levels from '../../constants/levels';
 import { getImg } from '../../lib/getData';
-import LangContext from '../../translation/LangContext';
+import { LangContext } from '../../translation/LangContext';
 import styles from './ImageGallery.module.scss';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -11,7 +11,7 @@ import { useContext } from 'react';
 
 const ImageGallery = ({ birdsData, lang }) => {
   const value = useContext(LangContext);
-  const { birdGallery } = value.state.languages;
+  const { birdGallery } = value.dictionary;
 
   const [questionId, setQuestionId] = useState(1);
   const [audioId, setAudioId] = useState(2);
@@ -24,7 +24,7 @@ const ImageGallery = ({ birdsData, lang }) => {
     setAudioId(index + 1);
   };
 
-  const levelsArr = Object.values(levels[lang]);
+  const levelsArr = Object.values(levels[lang]); 
   const elements = levelsArr.map((item, index) => {
     return (
       <div
