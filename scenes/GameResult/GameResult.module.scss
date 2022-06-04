@@ -21,7 +21,7 @@
   font-size: $font-size-l;
   font-weight: 300;
   margin: 0;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .hr {
@@ -52,6 +52,12 @@
   &:active {
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.5);
   }
+}
+
+.shareBtnContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px
 }
 
 @media (max-width: 470px) {

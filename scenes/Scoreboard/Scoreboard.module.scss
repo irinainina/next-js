@@ -32,6 +32,26 @@
   padding: 0;
   margin: 0;
   margin-bottom: 40px;
+  max-height: calc(100vh - 400px);
+  min-height: 200px;
+}
+
+.list::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.list::-webkit-scrollbar {
+  width: 12px;
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: $medium-green-color;
 }
 
 .date,
