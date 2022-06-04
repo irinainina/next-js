@@ -1,34 +1,41 @@
 import Auth from '../../components/Auth/Auth';
 import Footer from '../../components/Footer/Footer';
+import { LangContext } from '../../translation/LangContext';
 import styles from './HomePage.module.scss';
 import Link from 'next/link';
+import { useContext } from 'react';
 
-const HomePage = () => (
-  <>
-    <div className={styles.container}>
-      <Auth />
-      <div className={styles.titleContainer}>
-        <h1 className={styles.title}>Викторина</h1>
-        <h2 className={styles.subTitle}>«Голоса птиц»</h2>
-        <div className={styles.btns}>
-          <Link href="/cards/1">
-            <a className={styles.btn}>Игра</a>
-          </Link>
-          <Link href="/gallery">
-            <a className={styles.btn}>Галерея</a>
-          </Link>
+const HomePage = () => {
+  const value = useContext(LangContext);
+  const { quiz, quizTitle, game, gallery } = value.dictionary;
+
+  return (
+    <>
+      <div className={styles.container}>
+        <Auth />
+        <div className={styles.titleContainer}>
+          <h1 className={styles.title}>{quiz}</h1>
+          <h2 className={styles.subTitle}>{quizTitle}</h2>
+          <div className={styles.btns}>
+            <Link href="/cards/1">
+              <a className={styles.btn}>{game}</a>
+            </Link>
+            <Link href="/gallery">
+              <a className={styles.btn}>{gallery}</a>
+            </Link>
+          </div>
         </div>
+        <video
+          autoPlay
+          loop
+          muted
+          src={require('../../public/video/video.webm')}
+          className={styles.video}
+        />
       </div>
-      <video
-        autoPlay
-        loop
-        muted
-        src={require('../../public/video/video.webm')}
-        className={styles.video}
-      />
-    </div>
-    <Footer />
-  </>
-);
+      <Footer />
+    </>
+  );
+};
 
 export default HomePage;

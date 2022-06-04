@@ -4,7 +4,7 @@ import Head from 'next/head';
 const Home = () => (
   <>
     <Head>
-      <title>song-bird</title>
+      <title>songbird</title>
     </Head>
     <HomePage />
   </>

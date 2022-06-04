@@ -1,19 +1,24 @@
+import Layout from '../components/Layout/Layout';
 import '../styles/globals.scss';
-import Layout from '../components/Layout/Layout'
+import { LangProvider } from '../translation/LangContext';
 import { SessionProvider } from 'next-auth/react';
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+
   return (
     <SessionProvider session={pageProps.session}>
-    {router.pathname !== "/" ? (
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    ) : (
-      <Component {...pageProps} />
-    )}
+      <LangProvider>
+        {router.pathname !== '/' ? (
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        ) : (
+          <Component {...pageProps} />
+        )}
+      </LangProvider>
     </SessionProvider>
   );
 }

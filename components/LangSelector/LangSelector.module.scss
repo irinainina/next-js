@@ -1,0 +1,26 @@
+.select {
+  appearance: none;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  width: 110px;
+  height: 38px;
+  padding: 0 4em 0 1em;
+  background: url("/svg/select.svg")
+      no-repeat right 0.8em center / 1.4em,
+    linear-gradient(to left, rgba(255, 255, 255, 0.3) 3em, rgba(255, 255, 255, 0.2) 3em);
+  color: #fff;
+  border-radius: 0.25em;
+  box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  option {
+    color: inherit;
+    background-color: #747474;
+  }
+  &:focus {
+    outline: none;
+  }
+  &::-ms-expand {
+    display: none;
+  }
+}

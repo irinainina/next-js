@@ -53,17 +53,6 @@
   transition: .3s;
 }
 
-.lastLink {
-  position: relative;
-  display: block;
-  font-size: 18px;
-  color: #fff;
-  text-decoration: none;
-  padding: 20px;  
-  padding-right: 0px;
-  transition: .3s;
-}
-
 .linkActive {
   position: relative;
   display: block;
@@ -74,20 +63,12 @@
   transition: .3s;
 }
 
-.lastLinkActive {
-  position: relative;
-  display: block;
-  font-size: 18px;
-  color: #FFDA93;
-  text-decoration: none;
-  padding: 20px;
-  padding-right: 0px;
-  transition: .3s;
+.link:hover {
+  color: #ffe5b3;
 }
 
-.link:hover,
-.lastLink:hover {
-  color: #ffe5b3;
+.langSwitchContainer {
+  height: 36px;
 }
 
 @media (max-width: 470px) {  

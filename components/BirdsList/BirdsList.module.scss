@@ -78,6 +78,31 @@
   }
 }
 
+.activeItem {
+  position: relative;
+  padding: 17px 20px 17px 45px;
+  background-color: $block-color;
+  border: 1px solid $border-color;
+  list-style: none;
+  cursor: pointer;
+  &:hover {
+    background-color: $hover-color;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 22px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background-color: darkgrey;    
+  }
+  &:hover::before {
+    background-color: grey;
+  }
+}
+
 @media (max-width: 768px) {
   .birdsList {
     width: 100%;
