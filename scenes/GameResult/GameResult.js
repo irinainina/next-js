@@ -2,7 +2,7 @@ import Form from '../../components/Form/Form';
 import winImg from '../../public/img/win.jpg';
 import { LangContext } from '../../translation/LangContext';
 import styles from './GameResult.module.scss';
-import { FacebookShareButton, FacebookIcon, RedditShareButton, RedditIcon, TelegramShareButton, TelegramIcon, TwitterShareButton, TwitterIcon, PinterestShareButton, PinterestIcon } from 'next-share';
+import { FacebookShareButton, FacebookIcon, TelegramShareButton, TelegramIcon, TwitterShareButton, TwitterIcon, PinterestShareButton, PinterestIcon, ViberShareButton, ViberIcon } from 'next-share';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -30,13 +30,7 @@ const GameResult = ({ score }) => {
           quote={`${resultPart2}${score}${resultPart3}`}
           hashtag={'#songbird'}>
           <FacebookIcon size={48} round />
-        </FacebookShareButton>
-        <RedditShareButton
-          url={'https://next-js-gamma-nine.vercel.app/'}
-          quote={`${resultPart2}${score}${resultPart3}`}
-          hashtag={'#songbird'}>
-          <RedditIcon size={48} round />
-        </RedditShareButton>
+        </FacebookShareButton>        
         <TelegramShareButton
           url={'https://next-js-gamma-nine.vercel.app/'}
           quote={`${resultPart2}${score}${resultPart3}`}
@@ -55,6 +49,12 @@ const GameResult = ({ score }) => {
           hashtag={'#songbird'}>
           <PinterestIcon size={48} round />
         </PinterestShareButton>
+        <ViberShareButton
+          url={'https://next-js-gamma-nine.vercel.app/'}
+          quote={`${resultPart2}${score}${resultPart3}`}
+          hashtag={'#songbird'}>
+          <ViberIcon size={48} round />
+        </ViberShareButton>
         </div>
         <hr className={styles.hr} />
         <Image
