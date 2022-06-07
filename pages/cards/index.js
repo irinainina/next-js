@@ -8,7 +8,7 @@ const Cards = ({ cards }) => {
     router.push('/');
   }, []);
 
-  return null;
+  return null; 
 };
 
 export default Cards;
