@@ -26,10 +26,3 @@ export function LangProvider({ children }) {
     <LangContext.Provider value={provider}>{children}</LangContext.Provider>
   );
 }
-
-// get text according to id & current language
-export function Text({ tid }) {
-  const LangContext = useContext(LangContext);
-
-  return LangContext.dictionary[tid] || tid;
-}

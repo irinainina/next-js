@@ -1,5 +1,6 @@
 import Auth from '../../components/Auth/Auth';
 import Footer from '../../components/Footer/Footer';
+import video from '../../public/video/video.webm';
 import { LangContext } from '../../translation/LangContext';
 import styles from './HomePage.module.scss';
 import Link from 'next/link';
@@ -25,13 +26,7 @@ const HomePage = () => {
             </Link>
           </div>
         </div>
-        <video
-          autoPlay
-          loop
-          muted
-          src={require('../../public/video/video.webm')}
-          className={styles.video}
-        />
+        <video autoPlay loop muted src={video} className={styles.video} />
       </div>
       <Footer />
     </>
