@@ -1,4 +1,4 @@
-import saveResult from '../../lib/mutations';
+import saveScore from '../../lib/mutations';
 import { LangContext } from '../../translation/LangContext';
 import styles from './Form.module.scss';
 import { useSession } from 'next-auth/react';
@@ -25,7 +25,7 @@ const Form = ({ score }) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    saveResult(inputValue, score, redirect);
+    saveScore(inputValue, score, redirect);
   };
 
   return (
